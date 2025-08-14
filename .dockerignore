@@ -1,4 +1,26 @@
-.react-router
-build
-node_modules
-README.md
+# Development tools
+.idea
+
+# OS generated files
+.DS_Store
+
+# Build outputs
+/build
+/coverage
+
+# Development files
+*.example
+*.log
+.env
+
+# Temporary files and caches
+tmp
+temp
+.cache
+
+# Version control
+.gitignore
+.git
+
+# Dependencies
+/node_modules
