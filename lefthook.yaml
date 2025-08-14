@@ -1,24 +1,24 @@
 #   Refer for explanation to following link:
-#   https://lefthook.dev/configuration/
+    #   https://lefthook.dev/configuration/
 
-pre-push:
-  jobs:
-    - name: check
-      run: pnpm @biomejs/biome check --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {push_files}
-      glob: "*.{js,ts,cjs,mjs,jsx,tsx,json,jsonc,md,css}"
+    pre-push:
+      jobs:
+        - name: check
+          run: pnpm exec biome check --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {push_files}
+          glob: "*.{js,ts,cjs,mjs,jsx,tsx,json,jsonc,md,css}"
 
-pre-commit:
-  parallel: true
-  jobs:
-    - name: format
-      run: pnpm @biomejs/biome format --write --no-errors-on-unmatched {staged_files}
-      glob: "*.{js,ts,cjs,mjs,jsx,tsx,json,jsonc,md,css}"
-    - name: lint
-      run: pnpm @biomejs/biome lint --no-errors-on-unmatched {staged_files}
-      glob: "*.{js,ts,cjs,mjs,jsx,tsx}"
-    - name: check-types
-      run: pnpm tsc --noEmit
-      glob: "*.{ts,tsx}"
-      skip:
-        - sh: "git diff --cached --name-only | grep -v '\\.tsx\\?$'"
-          reason: "No TypeScript files staged"
+    pre-commit:
+      parallel: true
+      jobs:
+        - name: format
+          run: pnpm exec biome format --write --no-errors-on-unmatched {staged_files}
+          glob: "*.{js,ts,cjs,mjs,jsx,tsx,json,jsonc,md,css}"
+        - name: lint
+          run: pnpm exec biome lint --no-errors-on-unmatched {staged_files}
+          glob: "*.{js,ts,cjs,mjs,jsx,tsx}"
+        - name: check-types
+          run: pnpm tsc --noEmit
+          glob: "*.{ts,tsx}"
+          skip:
+            - sh: "git diff --cached --name-only | grep -v '\\.tsx\\?$'"
+              reason: "No TypeScript files staged"
