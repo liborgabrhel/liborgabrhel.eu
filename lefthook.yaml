@@ -4,7 +4,7 @@
     pre-push:
       jobs:
         - name: check
-          run: pnpm exec biome check --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {push_files}
+          run: pnpm exec biome check --no-errors-on-unmatched --files-ignore-unknown=true {push_files}
           glob: "*.{js,ts,cjs,mjs,jsx,tsx,json,jsonc,md,css}"
 
     pre-commit:

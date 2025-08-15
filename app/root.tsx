@@ -1,4 +1,5 @@
 import {
+  href,
   isRouteErrorResponse,
   Links,
   Meta,
@@ -36,6 +37,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
         <ScrollRestoration />
         <Scripts />
+
+        {/* Environment variables body script - sets ENV for client */}
+        <script src={href('/resources/env-script')} />
       </body>
     </html>
   )
