@@ -10,11 +10,51 @@
   }
 
   :root {
+    --line-height-compact: 1.125;
+    --line-height-tight: 1.25;
+    --line-height-normal: 1.5;
+
     --font-size: 18px;
+
+    --major-second-scale-ratio: 1.125;
+    --minor-third-scale-ratio: 1.2;
+
+    --type-scale-ratio: var(--major-second-scale-ratio);
 
     --font-size-note-text: 0.778rem; /* ~14px */
     --font-size-small-text: 0.889rem; /* ~16px */
     --font-size-base-text: 1rem; /* 18px */
+
+    --font-size-heading-6: calc(
+      var(--font-size-base-text) *
+      var(--type-scale-ratio)
+    );
+    --font-size-heading-5: calc(
+      var(--font-size-heading-6) *
+      var(--type-scale-ratio)
+    );
+    --font-size-heading-4: calc(
+      var(--font-size-heading-5) *
+      var(--type-scale-ratio)
+    );
+    --font-size-heading-3: calc(
+      var(--font-size-heading-4) *
+      var(--type-scale-ratio)
+    );
+    --font-size-heading-2: calc(
+      var(--font-size-heading-3) *
+      var(--type-scale-ratio)
+    );
+    --font-size-heading-1: calc(
+      var(--font-size-heading-2) *
+      var(--type-scale-ratio)
+    );
+  }
+
+  @media screen and (width >= 768px) {
+    :root {
+      --type-scale-ratio: var(--minor-third-scale-ratio);
+    }
   }
 
   html {
@@ -35,6 +75,63 @@
 
     button {
       font-family: var(--font-family), sans-serif;
+    }
+  }
+
+  body {
+    h1 {
+      font-size: var(--font-size-heading-1);
+      font-weight: 700;
+      line-height: var(--line-height-tight);
+      margin: 0;
+    }
+
+    h2 {
+      font-size: var(--font-size-heading-2);
+      font-weight: 700;
+      line-height: var(--line-height-tight);
+      margin: 0;
+    }
+
+    h3 {
+      font-size: var(--font-size-heading-3);
+      font-weight: 700;
+      line-height: var(--line-height-tight);
+      margin: 0;
+    }
+
+    h4 {
+      font-size: var(--font-size-heading-4);
+      font-weight: 700;
+      line-height: var(--line-height-tight);
+      margin: 0;
+    }
+
+    h5 {
+      font-size: var(--font-size-heading-5);
+      font-weight: 700;
+      line-height: var(--line-height-tight);
+      margin: 0;
+    }
+
+    h6 {
+      font-size: var(--font-size-heading-6);
+      font-weight: 700;
+      line-height: var(--line-height-tight);
+      margin: 0;
+    }
+
+    p {
+      font-size: var(--font-size-base-text);
+      font-weight: 400;
+      line-height: var(--line-height-normal);
+      margin: 0;
+    }
+
+    strong {
+      font-size: inherit;
+      font-weight: 600;
+      line-height: inherit;
     }
   }
 }

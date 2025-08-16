@@ -15,6 +15,7 @@ import '~/styles/fonts.css'
 import type { Route } from './+types/root'
 
 export const links: Route.LinksFunction = () => [
+  // Inter font
   { href: 'https://rsms.me/', rel: 'preconnect' },
   { href: 'https://rsms.me/inter/inter.css', rel: 'stylesheet' },
 ]

@@ -17,7 +17,9 @@ export default function RouteComponent() {
       />
 
       <h1>Libor Gabrhel</h1>
-      <p>Buzz-worthy websites, bee-loved hives</p>
+      <p>
+        Buzz-worthy <strong>websites</strong>, bee-loved <strong>hives</strong>
+      </p>
     </>
   )
 }
