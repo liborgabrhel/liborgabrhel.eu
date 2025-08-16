@@ -1,0 +1,29 @@
+generator client {
+  provider        = "prisma-client"
+  output          = "../generated/prisma"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum BlogPostType {
+  DEVELOPER
+  BEEKEEPER
+}
+
+model BlogPost {
+  id      String       @id @default(cuid())
+  slug    String       @unique
+  title   String
+  content String
+  type    BlogPostType
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // non-unique foreign key
+  @@index([type])
+}

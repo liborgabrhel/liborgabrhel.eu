@@ -31,3 +31,11 @@ pnpm-workspace.yaml
 # react router
 /.react-router/
 /build/
+
+# generated files
+/generated/
+
+# prisma
+/prisma/*.db
+/prisma/*.db-journal
+/prisma/*.sql

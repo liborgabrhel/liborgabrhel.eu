@@ -8,6 +8,7 @@
     "moduleResolution": "bundler",
     "noEmit": true,
     "paths": {
+      "@generated/*": ["./generated/*"],
       "~/*": ["./app/*"]
     },
     "resolveJsonModule": true,
