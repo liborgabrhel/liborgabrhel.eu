@@ -38,6 +38,6 @@ export const STATIC_URLS: SitemapUrl[] = [
     changefreq: 'yearly',
     lastmod: new Date().toISOString(),
     path: href('/contact'),
-    priority: '0.6',
+    priority: '0.8',
   },
 ]
