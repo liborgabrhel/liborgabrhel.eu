@@ -24,7 +24,7 @@ export function initEnv() {
   if (!result.success) {
     console.error(
       'Invalid environment variables:',
-      z.prettifyError(result.error),
+      z.flattenError(result.error).fieldErrors,
     )
     throw new Error('Invalid environment variables')
   }

@@ -2,7 +2,6 @@
 
 import { href } from 'react-router'
 import { PageSeo } from '~/components/page-seo'
-import { Welcome } from '~/welcome/welcome'
 
 export default function RouteComponent() {
   return (
@@ -13,11 +12,12 @@ export default function RouteComponent() {
         metaRobots={undefined}
         ogImageUrl={undefined}
         pagePath={href('/')}
-        pageTitle={'Personal Website'}
+        pageTitle={'Frontend Developer & Beekeeper'}
         twitterImageUrl={undefined}
       />
 
-      <Welcome />
+      <h1>Libor Gabrhel</h1>
+      <p>Buzz-worthy websites, bee-loved hives</p>
     </>
   )
 }

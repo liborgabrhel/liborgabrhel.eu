@@ -1,3 +1,6 @@
+// noinspection JSUnusedGlobalSymbols
+
+import type { ReactNode } from 'react'
 import {
   href,
   isRouteErrorResponse,
@@ -7,23 +10,16 @@ import {
   Scripts,
   ScrollRestoration,
 } from 'react-router'
-
+import '~/styles/globals.css'
+import '~/styles/fonts.css'
 import type { Route } from './+types/root'
 
 export const links: Route.LinksFunction = () => [
-  { href: 'https://fonts.googleapis.com', rel: 'preconnect' },
-  {
-    crossOrigin: 'anonymous',
-    href: 'https://fonts.gstatic.com',
-    rel: 'preconnect',
-  },
-  {
-    href: 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',
-    rel: 'stylesheet',
-  },
+  { href: 'https://rsms.me/', rel: 'preconnect' },
+  { href: 'https://rsms.me/inter/inter.css', rel: 'stylesheet' },
 ]
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export function Layout({ children }: { children: ReactNode }) {
   // noinspection HtmlRequiredTitleElement
   return (
     <html lang="en">
@@ -39,7 +35,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Scripts />
 
         {/* Environment variables body script - sets ENV for client */}
-        <script src={href('/resources/env-script')} />
+        <script src={href('/resources/env-script.js')} />
       </body>
     </html>
   )

@@ -17,11 +17,6 @@
     }
   },
   "files": {
-    "experimentalScannerIgnores": [
-      "./.idea/**/*",
-      "./node_modules/**/*",
-      "./.react-router/**/*"
-    ],
     "ignoreUnknown": false,
     "includes": ["./**/*"]
   },
@@ -69,7 +64,7 @@
   },
   "vcs": {
     "clientKind": "git",
-    "enabled": false,
-    "useIgnoreFile": false
+    "enabled": true,
+    "useIgnoreFile": true
   }
 }

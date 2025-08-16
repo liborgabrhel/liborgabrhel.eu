@@ -2,13 +2,15 @@ import { createContentHash } from '~/utils/hash.server'
 
 export async function loader() {
   const script = `window.ENV = ${JSON.stringify(ENV)};`
-  const version = createContentHash(script)
+
+  const contentHash = createContentHash(script)
 
   return new Response(script, {
     headers: {
-      'Cache-Control': 'public, immutable, max-age=31536000',
+      'Cache-Control': 'public, max-age=31536000', // 1 year
+      'Content-Encoding': 'UTF-8',
       'Content-Type': 'application/javascript',
-      ETag: `"${version}"`,
+      ETag: `"${contentHash}"`,
     },
   })
 }
