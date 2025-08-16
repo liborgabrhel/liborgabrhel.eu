@@ -31,9 +31,7 @@ export default [
   route('contact', 'routes/contact/route.tsx'),
 
   // Resources
-  ...prefix('resources', [
-    route('env-script.js', 'routes/resources/env-script/route.ts'),
-  ]),
+  ...prefix('resources', [route('env.js', 'routes/resources/env/route.ts')]),
 
   // Sitemap
   route('sitemap.xml', 'routes/sitemap/_index/route.ts'),
