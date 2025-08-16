@@ -20,7 +20,7 @@ export async function loader({ params, request }: Route.LoaderArgs) {
   const host = new URL(request.url).origin
 
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls
   .map(
     (url) => `  <url>
