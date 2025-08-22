@@ -18,6 +18,7 @@
 
     --major-second-scale-ratio: 1.125;
     --minor-third-scale-ratio: 1.2;
+    --major-third-scale-ratio: 1.25;
 
     --type-scale-ratio: var(--major-second-scale-ratio);
 
@@ -54,6 +55,12 @@
   @media screen and (width >= 768px) {
     :root {
       --type-scale-ratio: var(--minor-third-scale-ratio);
+    }
+  }
+
+  @media screen and (width >= 1024px) {
+    :root {
+      --type-scale-ratio: var(--major-third-scale-ratio);
     }
   }
 

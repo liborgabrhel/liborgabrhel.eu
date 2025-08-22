@@ -1,7 +1,12 @@
-@layer base, component, variant, route;
+@layer base, component, variant, layout, route;
 
 @layer base {
   * {
     box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg-primary);
   }
 }
