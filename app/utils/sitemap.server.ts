@@ -1,4 +1,4 @@
-import type { BlogPostType } from '@generated/prisma/enums'
+import type { NoteType } from '@generated/prisma/enums'
 import { href } from 'react-router'
 import { STATIC_URLS, URLS_PER_SITEMAP } from '~/constants/sitemap'
 import type { SitemapUrl } from '~/types/sitemap'
@@ -12,7 +12,7 @@ export async function getSitemapCount() {
 
 async function getTotalUrlsCount() {
   const totalStaticPages = STATIC_URLS.length
-  const totalBlogPosts = await db.blogPost.count()
+  const totalBlogPosts = await db.note.count()
 
   return totalStaticPages + totalBlogPosts
 }
@@ -25,9 +25,9 @@ export async function getUrlsForSitemap(index: number) {
   return allUrls.slice(offset, offset + URLS_PER_SITEMAP)
 }
 
-const getBlogPostPathByType: Record<BlogPostType, (value: string) => string> = {
-  BEEKEEPER: (slug) => href('/beekeeper/blog/:slug', { slug }),
-  DEVELOPER: (slug) => href('/developer/blog/:slug', { slug }),
+const getBlogPostPathByType: Record<NoteType, (value: string) => string> = {
+  BEEKEEPER: (slug) => href('/beekeeper/notes/:slug', { slug }),
+  DEVELOPER: (slug) => href('/developer/notes/:slug', { slug }),
 }
 
 async function fetchAllUrls() {
@@ -40,7 +40,7 @@ async function fetchAllUrls() {
     })),
   ]
 
-  const firstDeveloperBlogPost = await db.blogPost.findFirst({
+  const firstDeveloperBlogPost = await db.note.findFirst({
     orderBy: { updatedAt: 'desc' },
     select: { updatedAt: true },
     where: { type: 'DEVELOPER' },
@@ -51,11 +51,11 @@ async function fetchAllUrls() {
     lastmod:
       firstDeveloperBlogPost?.updatedAt.toISOString() ||
       new Date().toISOString(),
-    path: href('/developer/blog'),
+    path: href('/developer/notes'),
     priority: '0.8',
   })
 
-  const firstBeekeeperBlogPost = await db.blogPost.findFirst({
+  const firstBeekeeperBlogPost = await db.note.findFirst({
     orderBy: { updatedAt: 'desc' },
     select: { updatedAt: true },
     where: { type: 'BEEKEEPER' },
@@ -66,11 +66,11 @@ async function fetchAllUrls() {
     lastmod:
       firstBeekeeperBlogPost?.updatedAt.toISOString() ||
       new Date().toISOString(),
-    path: href('/beekeeper/blog'),
+    path: href('/beekeeper/notes'),
     priority: '0.8',
   })
 
-  const blogPosts = await db.blogPost.findMany({
+  const blogPosts = await db.note.findMany({
     select: {
       slug: true,
       type: true,

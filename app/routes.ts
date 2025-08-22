@@ -2,33 +2,59 @@
 
 import {
   index,
+  layout,
   prefix,
   type RouteConfig,
   route,
 } from '@react-router/dev/routes'
 
 export default [
-  // Home
-  index('routes/_index/route.tsx'),
+  // Home & Contact
+  layout('routes/__layout/component.tsx', [
+    index('routes/_index/route.tsx'),
+    route('contact', 'routes/contact/route.tsx'),
+  ]),
 
   // Developer
   ...prefix('developer', [
-    index('routes/developer/_index/route.tsx'),
-    route('blog', 'routes/developer/blog/_index/route.tsx'),
-    route('blog/:slug', 'routes/developer/blog/post/route.tsx'),
-    route('portfolio', 'routes/developer/portfolio/route.tsx'),
+    layout('routes/developer/__layout/route.tsx', [
+      index('routes/developer/_index/route.tsx'),
+      route('portfolio', 'routes/developer/portfolio/route.tsx'),
+      layout('routes/developer/notes/__layout/route.tsx', [
+        route('notes', 'routes/developer/notes/_index/route.tsx'),
+        route('notes/:slug', 'routes/developer/notes/note/route.tsx'),
+      ]),
+    ]),
   ]),
 
   // Beekeeper
   ...prefix('beekeeper', [
-    index('routes/beekeeper/_index/route.tsx'),
-    route('blog', 'routes/beekeeper/blog/_index/route.tsx'),
-    route('blog/:slug', 'routes/beekeeper/blog/post/route.tsx'),
-    route('apiary', 'routes/beekeeper/apiary/route.tsx'),
+    layout('routes/beekeeper/__layout/route.tsx', [
+      index('routes/beekeeper/_index/route.tsx'),
+      route('apiary', 'routes/beekeeper/apiary/route.tsx'),
+      layout('routes/beekeeper/notes/__layout/route.tsx', [
+        route('notes', 'routes/beekeeper/notes/_index/route.tsx'),
+        route('notes/:slug', 'routes/beekeeper/notes/note/route.tsx'),
+      ]),
+    ]),
   ]),
 
-  // Contact
-  route('contact', 'routes/contact/route.tsx'),
+  // Admin
+  ...prefix('admin', [
+    layout('routes/admin/__layout/route.tsx', [
+      index('routes/admin/_index/route.tsx'),
+      // SEO Management
+      ...prefix('seo', [
+        index('routes/admin/seo/_index/route.tsx'),
+        route('create', 'routes/admin/seo/create/route.tsx'),
+      ]),
+      // Notes Management
+      ...prefix('notes', [
+        index('routes/admin/notes/_index/route.tsx'),
+        route('create', 'routes/admin/notes/create/route.tsx'),
+      ]),
+    ]),
+  ]),
 
   // Resources
   ...prefix('resources', [route('env.js', 'routes/resources/env/route.ts')]),

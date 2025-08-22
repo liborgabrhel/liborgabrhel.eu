@@ -4,12 +4,11 @@ import { PageSeo } from '~/components/page-seo'
 import { seo } from './_seo'
 import type { Route } from './+types/route'
 
-export { handle } from './_handle'
 export { loader } from './_loader'
-export { meta } from './_meta'
 
 export default function RouteComponent({ loaderData }: Route.ComponentProps) {
   const { baseUrl } = loaderData
+
   return (
     <>
       <PageSeo
@@ -22,7 +21,7 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
         twitterImageUrl={''}
       />
 
-      <h2>Portfolio</h2>
+      <h2>Bee Notes</h2>
     </>
   )
 }
