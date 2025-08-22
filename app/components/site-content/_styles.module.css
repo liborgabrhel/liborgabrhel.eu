@@ -6,5 +6,4 @@
   }
 
   position: relative;
-  min-height: calc(var(--viewport-height) - var(--site-header-height));
 }
