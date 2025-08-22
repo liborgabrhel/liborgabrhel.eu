@@ -2,10 +2,10 @@ import { createAbsoluteUrl } from '~/utils/create-absolute-url'
 import { createTitle } from '~/utils/create-title'
 
 type Props = {
+  baseUrl: string
   pageTitle: string | undefined
   pagePath: string
   metaDescription: string | undefined
-  metaKeywords: string | undefined
   metaRobots: string | undefined
   ogImageUrl: string | undefined
   twitterImageUrl: string | undefined
@@ -14,10 +14,10 @@ type Props = {
 }
 
 export const PageSeo = ({
+  baseUrl,
   pageTitle,
   pagePath,
   metaDescription,
-  metaKeywords,
   metaRobots,
   ogImageUrl,
   twitterImageUrl,
@@ -25,13 +25,12 @@ export const PageSeo = ({
   twitterCard = 'summary_large_image',
 }: Props) => {
   const title = createTitle(pageTitle)
-  const absoluteUrl = createAbsoluteUrl(ENV.BASE_URL, pagePath)
+  const absoluteUrl = createAbsoluteUrl(baseUrl, pagePath)
 
   return (
     <>
       <title>{title}</title>
       <meta content={metaDescription} name={'description'} />
-      <meta content={metaKeywords} name={'keywords'} />
       <meta content={metaRobots} name={'robots'} />
       <link href={absoluteUrl} rel={'canonical'} />
 
