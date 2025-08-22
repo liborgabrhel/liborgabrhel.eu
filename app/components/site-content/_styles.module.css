@@ -5,5 +5,11 @@
     --viewport-height: 100dvh;
   }
 
+  display: grid;
   position: relative;
+  width: 100%;
+  grid-template-columns: 1fr;
+  grid-auto-flow: row;
+  justify-items: center;
+  align-content: start;
 }
