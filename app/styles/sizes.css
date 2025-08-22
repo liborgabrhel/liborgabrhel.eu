@@ -1,0 +1,10 @@
+:root {
+  @layer base {
+    /* Page */
+    --page-content-max-width: 1024px;
+    --page-content-padding-inline: 12px;
+    @media (width >= 768px) {
+      --page-content-padding-inline: 24px;
+    }
+  }
+}

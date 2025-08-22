@@ -1,0 +1,74 @@
+:root {
+  /* Primary Colors */
+  --blue-50: #eff6ff;
+  --blue-500: #3b82f6;
+  --blue-600: #1d4ed8;
+
+  /* Neutral Grays */
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+
+  /* Success/Status Colors */
+  --green-500: #10b981;
+  --green-600: #059669;
+  --green-300: #34d399;
+
+  /* Beekeeper/Honey Colors */
+  --amber-50: #fffbeb;
+  --amber-100: #fef3c7;
+  --amber-200: #fde68a;
+  --amber-300: #fcd34d;
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --amber-600: #d97706;
+  --amber-700: #b45309;
+  --amber-800: #92400e;
+  --amber-900: #78350f;
+
+  /* Warm Orange Accents */
+  --orange-400: #fb923c;
+  --orange-500: #f97316;
+  --orange-600: #ea580c;
+
+  /* Background Colors */
+  --bg-primary: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  --bg-card: #ffffff;
+  --bg-muted: #f8fafc;
+
+  /* Text Colors */
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --text-inverse: #ffffff;
+
+  /* Brand Gradients */
+  --gradient-primary: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  --gradient-dark: linear-gradient(135deg, #1e293b, #334155);
+  --gradient-success: linear-gradient(135deg, #10b981, #059669);
+  --gradient-honey: linear-gradient(135deg, #f59e0b, #d97706);
+  --gradient-warm: linear-gradient(135deg, #fbbf24, #f59e0b);
+  --gradient-sunset: linear-gradient(135deg, #f97316, #ea580c);
+
+  /* Interactive States */
+  --hover-lift: translateY(-2px);
+  --hover-lift-small: translateY(-1px);
+  --hover-lift-large: translateY(-4px);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-base: 0 2px 10px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
+  --shadow-blue: 0 10px 25px rgba(59, 130, 246, 0.4);
+  --shadow-amber: 0 10px 25px rgba(245, 158, 11, 0.4);
+  --shadow-white: 0 10px 25px rgba(255, 255, 255, 0.2);
+}
