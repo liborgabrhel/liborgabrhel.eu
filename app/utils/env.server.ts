@@ -9,7 +9,6 @@ const schema = z.object({
     'development',
     'staging',
   ] as const),
-  [ENV_KEYS.BASE_URL]: z.string(),
 })
 
 declare global {
@@ -46,7 +45,6 @@ export function initEnv() {
  */
 export function getEnv() {
   return {
-    BASE_URL: process.env.BASE_URL,
     MODE: process.env.NODE_ENV,
   }
 }
