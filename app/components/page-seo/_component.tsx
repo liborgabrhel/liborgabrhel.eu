@@ -13,6 +13,19 @@ type Props = {
   twitterCard?: string
 }
 
+/**
+ * Component that renders essential SEO meta tags for a page.
+ *
+ * Generates HTML head elements including:
+ * - Page title with site branding
+ * - Meta description and robots directives
+ * - Canonical URL for SEO
+ * - Open Graph tags for social media sharing
+ * - Twitter Card tags for Twitter sharing
+ *
+ * @param props - SEO configuration options
+ * @returns JSX fragment containing meta tags
+ */
 export const PageSeo = ({
   baseUrl,
   pageTitle,
