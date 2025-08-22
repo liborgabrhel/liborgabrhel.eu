@@ -1,0 +1,10 @@
+.content {
+  --viewport-height: 100vh;
+
+  @supports (height: 100dvh) {
+    --viewport-height: 100dvh;
+  }
+
+  position: relative;
+  min-height: calc(var(--viewport-height) - var(--site-header-height));
+}
