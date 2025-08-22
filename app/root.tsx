@@ -12,6 +12,8 @@ import {
 } from 'react-router'
 import '~/styles/globals.css'
 import '~/styles/fonts.css'
+import '~/styles/colors.css'
+import '~/styles/sizes.css'
 import type { Route } from './+types/root'
 
 export const links: Route.LinksFunction = () => [
@@ -19,6 +21,13 @@ export const links: Route.LinksFunction = () => [
   { href: 'https://rsms.me/', rel: 'preconnect' },
   { href: 'https://rsms.me/inter/inter.css', rel: 'stylesheet' },
 ]
+
+export const handle = {
+  breadcrumb: () => ({
+    label: 'Home',
+    path: href('/'),
+  }),
+}
 
 export function Layout({ children }: { children: ReactNode }) {
   // noinspection HtmlRequiredTitleElement
