@@ -9,21 +9,94 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum BlogPostType {
-  DEVELOPER
-  BEEKEEPER
-}
+model Seo {
+  id              String  @id @default(cuid())
+  pagePath        String  @unique
+  pageTitle       String
+  metaDescription String
+  metaRobots      String  @default("index, follow")
+  ogImageUrl      String?
+  twitterImageUrl String?
 
-model BlogPost {
-  id      String       @id @default(cuid())
-  slug    String       @unique
-  title   String
-  content String
-  type    BlogPostType
+  // Relations - can be used by notes or standalone
+  notes Note[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  @@index([pagePath])
+}
+
+model Note {
+  id      String @id @default(cuid())
+  slug    String @unique
+  title   String
+  content String
+
+  type NoteType
+
+  // SEO relation - required for all notes
+  seo   Seo    @relation(fields: [seoId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  seoId String
+
+  // Images relation - one-to-many
+  images NoteImage[]
+
+  // Featured image relation
+  featuredImage NoteImage? @relation("FeaturedNoteImage")
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  publishedAt DateTime?
+
+  state NoteState @default(DRAFT)
+
   // non-unique foreign key
   @@index([type])
+  @@index([seoId])
+}
+
+enum NoteType {
+  DEVELOPER
+  BEEKEEPER
+}
+
+model NoteImage {
+  id          String @id @default(cuid())
+  altText     String
+  contentType String
+  blob        Bytes
+
+  // Relations to Note
+  note   Note   @relation(fields: [noteId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  noteId String
+
+  // Featured image relation
+  featuredInNote   Note?   @relation("FeaturedNoteImage", fields: [featuredInNoteId], references: [id])
+  featuredInNoteId String? @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([noteId])
+}
+
+enum NoteState {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+model Session {
+  id            String   @id @default(cuid())
+  
+  // GitHub OAuth data
+  githubId      String
+  githubUsername String
+  
+  // Session management
+  expiresAt     DateTime
+  createdAt     DateTime @default(now())
+  
+  @@index([githubId])
 }
