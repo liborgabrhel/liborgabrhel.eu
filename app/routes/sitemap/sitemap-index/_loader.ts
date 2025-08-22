@@ -3,7 +3,7 @@ import { getSitemapCount } from '~/utils/sitemap.server'
 import type { Route } from './+types/route'
 
 export async function loader({ request }: Route.LoaderArgs) {
-  const host = new URL(request.url).origin
+  const baseUrl = new URL(request.url).origin
 
   const sitemapCount = await getSitemapCount()
 
@@ -12,7 +12,7 @@ export async function loader({ request }: Route.LoaderArgs) {
 ${Array.from(
   { length: sitemapCount },
   (_, i) => `  <sitemap>
-    <loc>${host}/sitemap/sitemap-${i}.xml</loc>
+    <loc>${baseUrl}/sitemap/sitemap-${i}.xml</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
   </sitemap>`,
 ).join('\n')}
