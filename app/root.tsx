@@ -9,11 +9,13 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
 } from 'react-router'
 import '~/styles/globals.css'
 import '~/styles/fonts.css'
 import '~/styles/colors.css'
 import '~/styles/sizes.css'
+import { clsx } from 'clsx'
 import type { Route } from './+types/root'
 
 export const links: Route.LinksFunction = () => [
@@ -30,6 +32,11 @@ export const handle = {
 }
 
 export function Layout({ children }: { children: ReactNode }) {
+  const location = useLocation()
+
+  const isBeekeeperPage = location.pathname.startsWith(href('/beekeeper'))
+  const isDeveloperPage = location.pathname.startsWith(href('/developer'))
+
   // noinspection HtmlRequiredTitleElement
   return (
     <html lang="en">
@@ -39,7 +46,12 @@ export function Layout({ children }: { children: ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body
+        className={clsx(
+          isBeekeeperPage && 'beekeeper',
+          isDeveloperPage && 'developer',
+        )}
+      >
         {children}
         <ScrollRestoration />
         <Scripts />
