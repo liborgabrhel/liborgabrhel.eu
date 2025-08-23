@@ -20,18 +20,36 @@
 }
 
 .headline {
-  color: var(--text-primary);
+  background: var(--gradient-dark);
+  background-clip: text;
+  color: transparent;
 
   view-transition-name: headline;
   text-align: center;
-}
 
-.headlineDefault {
-  font-size: var(--font-size-heading-1);
-}
+  &.headline_default {
+    font-size: var(--font-size-heading-1);
+    font-weight: 700;
+    line-height: var(--line-height-tight);
+  }
 
-.headlineSimple {
-  font-size: var(--font-size-heading-4);
+  &.headline_simple {
+    font-size: var(--font-size-heading-4);
+    font-weight: 700;
+    line-height: var(--line-height-tight);
+  }
+
+  &.headline_beekeeper {
+    background: var(--gradient-honey);
+    background-clip: text;
+    color: transparent;
+  }
+
+  &.headline_developer {
+    background: var(--gradient-teal);
+    background-clip: text;
+    color: transparent;
+  }
 }
 
 .subheadline {

@@ -11,21 +11,23 @@ type Props = {
 export const SiteHeader = ({ className, variant = 'default' }: Props) => {
   const { pathname } = useLocation()
 
-  const isDeveloperPage = pathname.startsWith(href('/developer'))
   const isBeekeeperPage = pathname.startsWith(href('/beekeeper'))
+  const isDeveloperPage = pathname.startsWith(href('/developer'))
 
   return (
     <header className={clsx(styles.header, className)}>
       <section className={styles.content}>
-        <h1
+        <p
           className={clsx(
             styles.headline,
-            variant === 'default' && styles.headlineDefault,
-            variant === 'simple' && styles.headlineSimple,
+            variant === 'default' && styles.headline_default,
+            variant === 'simple' && styles.headline_simple,
+            isBeekeeperPage && styles.headline_beekeeper,
+            isDeveloperPage && styles.headline_developer,
           )}
         >
           {SITE_NAME}
-        </h1>
+        </p>
         <p
           className={clsx(
             styles.subheadline,
