@@ -2,10 +2,13 @@
     #   https://lefthook.dev/configuration/
 
     pre-push:
+      parallel: true
       jobs:
         - name: check
           run: pnpm exec biome check --no-errors-on-unmatched --files-ignore-unknown=true {push_files}
           glob: "*.{js,ts,cjs,mjs,jsx,tsx,json,jsonc,md,css}"
+        - name: test
+          run: pnpm test
 
     pre-commit:
       parallel: true
