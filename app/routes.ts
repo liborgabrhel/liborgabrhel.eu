@@ -10,7 +10,7 @@ import {
 
 export default [
   // Home & Contact
-  layout('routes/__layout/component.tsx', [
+  layout('routes/__layout/route.tsx', [
     index('routes/_index/route.tsx'),
     route('contact', 'routes/contact/route.tsx'),
   ]),
