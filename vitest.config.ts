@@ -5,8 +5,8 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: [
-      { find: /^~\/(.+)/, replacement: './app/$1' },
-      { find: /^@generated\/(.+)/, replacement: './generated/$1' },
+      { find: /^~\/(.+)/, replacement: '/app/$1' },
+      { find: /^@generated\/(.+)/, replacement: '/generated/$1' },
     ],
   },
   test: {
