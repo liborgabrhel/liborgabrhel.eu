@@ -1,0 +1,13 @@
+.svg {
+  --animation-duration: 6173ms; /* (1852 * 0.5 / 150) * 1000 */
+  fill: none;
+  width: auto;
+  height: 100%;
+}
+
+.overlay {
+  fill: var(--amber-100);
+  fill-opacity: 0.5;
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+}
