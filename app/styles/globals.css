@@ -6,9 +6,20 @@
   }
 
   body {
+    display: grid;
+    position: relative;
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
     margin: 0;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    view-transition-name: body;
+    min-height: 100vh;
+
+    @supports (height: 100dvh) {
+      min-height: 100dvh;
+    }
   }
 }
