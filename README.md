@@ -1,18 +1,22 @@
-# Welcome to React Router!
+# liborgabrhel.eu
 
-A modern, production-ready template for building full-stack React applications using React Router.
+Personal website of Libor Gabrhel - showcasing both developer and beekeeper personas.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## About
 
-## Features
+This is a dual-purpose personal website featuring:
+- **Developer Section** - Software engineering portfolio, projects, and technical notes
+- **Beekeeper Section** - Beekeeping content, apiary management, and related notes
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+## Tech Stack
+
+- 🚀 **React Router v7** - Full-stack React framework with SSR
+- ⚡️ **TypeScript** - Type-safe development
+- 📦 **Vite** - Fast build tool with HMR
+- 🎨 **CSS Modules** - Scoped styling
+- 🗄️ **Prisma + SQLite** - Database with Better-SQLite3 adapter
+- 🔧 **Biome** - Fast formatting and linting
+- 🪝 **Lefthook** - Git hooks automation
 
 ## Getting Started
 
@@ -21,15 +25,23 @@ A modern, production-ready template for building full-stack React applications u
 Install the dependencies:
 
 ```bash
-npm install
+pnpm install
 ```
+
+Install Git hooks for code quality automation:
+
+```bash
+pnpm lefthook:install
+```
+
+> **Note**: This project uses [Lefthook](./docs/lefthook.md) for automated code formatting, linting, and testing on commits and pushes.
 
 ### Development
 
 Start the development server with HMR:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 Your application will be available at `http://localhost:5173`.
@@ -39,7 +51,7 @@ Your application will be available at `http://localhost:5173`.
 Create a production build:
 
 ```bash
-npm run build
+pnpm build
 ```
 
 ## Deployment
@@ -68,20 +80,31 @@ The containerized application can be deployed to any platform that supports Dock
 
 If you're familiar with deploying Node applications, the built-in app server is production-ready.
 
-Make sure to deploy the output of `npm run build`
+Make sure to deploy the output of `pnpm build`
 
 ```
 ├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
+├── pnpm-lock.yaml
 ├── build/
 │   ├── client/    # Static assets
 │   └── server/    # Server-side code
 ```
 
-## Styling
+## Project Structure
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+```
+app/
+├── components/          # Reusable UI components
+├── routes/             # File-based routing
+│   ├── developer/      # Developer section routes
+│   └── beekeeper/      # Beekeeper section routes
+├── styles/             # Global styles
+└── utils/              # Utility functions
+
+docs/                   # Project documentation
+prisma/                 # Database schema and migrations
+```
 
 ---
 
-Built with ❤️ using React Router.
+Built with ❤️ by Libor Gabrhel.
