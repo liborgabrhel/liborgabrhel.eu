@@ -46,7 +46,7 @@
     "node": ">=22"
   },
   "name": "liborgabrhel.eu",
-  "packageManager": "pnpm@10.14.0",
+  "packageManager": "pnpm@10.15.0",
   "private": true,
   "scripts": {
     "build": "react-router build",
