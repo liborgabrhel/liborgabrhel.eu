@@ -39,6 +39,3 @@ pnpm-workspace.yaml
 /prisma/*.db
 /prisma/*.db-journal
 /prisma/*.sql
-
-# claude code
-CLAUDE.md

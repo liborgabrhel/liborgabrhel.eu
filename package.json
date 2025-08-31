@@ -49,8 +49,9 @@
   "packageManager": "pnpm@10.15.0",
   "private": true,
   "scripts": {
-    "build": "react-router build",
-    "dev": "react-router dev",
+    "app:build": "react-router build",
+    "app:dev": "react-router dev",
+    "app:start": "react-router-serve ./build/server/index.js",
     "lefthook:install": "lefthook install",
     "lefthook:pre-commit": "lefthook run pre-commit",
     "lefthook:pre-push": "lefthook run pre-push",
@@ -63,7 +64,6 @@
     "prisma:migrate:dev-init": "prisma migrate dev --name init --create-only",
     "prisma:migrate:reset": "prisma migrate reset",
     "prisma:studio": "prisma studio",
-    "start": "react-router-serve ./build/server/index.js",
     "test": "vitest run",
     "typecheck": "react-router typegen && tsc",
     "typegen": "react-router typegen"
