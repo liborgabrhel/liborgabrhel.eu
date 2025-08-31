@@ -10,17 +10,17 @@ export const getBreadcrumbs = (matches: Match[]) => {
 
 export const createBreadcrumbStructuredData = (
   breadcrumbs: Breadcrumb[],
-  baseUrl: string | undefined,
+  baseUrl: string,
 ) => {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: breadcrumbs.map((breadcrumb, index) => {
-      const absolutePath = createAbsoluteUrl(baseUrl ?? '', breadcrumb.path)
+      const absolutePath = createAbsoluteUrl(baseUrl, breadcrumb.path)
 
       return {
         '@type': 'ListItem',
-        item: absolutePath,
+        item: absolutePath.href,
         name: breadcrumb.label,
         position: index + 1,
       }

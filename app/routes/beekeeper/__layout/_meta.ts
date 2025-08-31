@@ -10,7 +10,7 @@ export const meta: Route.MetaFunction = ({ matches, loaderData }) => {
 
   const breadcrumbStructuredData = createBreadcrumbStructuredData(
     breadcrumbs,
-    loaderData?.baseUrl,
+    loaderData.baseUrl,
   )
 
   return [{ 'script:ld+json': breadcrumbStructuredData }]

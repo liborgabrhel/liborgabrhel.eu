@@ -9,7 +9,7 @@ const createRobotsTxt = (baseUrl: string) =>
 User-agent: *
 Allow: /
 
-Sitemap: ${createAbsoluteUrl(baseUrl, href('/sitemap/sitemap-index.xml'))}
+Sitemap: ${createAbsoluteUrl(baseUrl, href('/sitemap/sitemap-index.xml')).href}
 `.trim()
 
 export async function loader({ request }: Route.LoaderArgs) {

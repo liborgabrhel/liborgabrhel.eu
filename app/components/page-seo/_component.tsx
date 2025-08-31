@@ -45,13 +45,13 @@ export const PageSeo = ({
       <title>{title}</title>
       <meta content={metaDescription} name={'description'} />
       <meta content={metaRobots} name={'robots'} />
-      <link href={absoluteUrl} rel={'canonical'} />
+      <link href={absoluteUrl.href} rel={'canonical'} />
 
       {/* Open Graph Meta Tags */}
       <meta content={title} property={'og:title'} />
       <meta content={metaDescription} property={'og:description'} />
       <meta content={ogType} property={'og:type'} />
-      <meta content={absoluteUrl} property={'og:url'} />
+      <meta content={absoluteUrl.href} property={'og:url'} />
       <meta content={ogImageUrl} property={'og:image'} />
 
       {/* Twitter Meta Tags */}

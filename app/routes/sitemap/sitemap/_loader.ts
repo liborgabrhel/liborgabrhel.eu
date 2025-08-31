@@ -13,7 +13,7 @@ const createSitemapXml = (urls: SitemapUrl[], baseUrl: string) =>
 ${urls
   .map(
     (url) => `  <url>
-    <loc>${createAbsoluteUrl(baseUrl, url.path)}</loc>
+    <loc>${createAbsoluteUrl(baseUrl, url.path).href}</loc>
     <lastmod>${url.lastmod}</lastmod>
     <changefreq>${url.changefreq}</changefreq>
     <priority>${url.priority}</priority>
