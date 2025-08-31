@@ -33,7 +33,8 @@ For SEO benefits, add structured data to your route's meta function:
 
 ```typescript
 import type { Match } from '~/types/match'
-import { createBreadcrumbStructuredData, getBreadcrumbs } from '~/utils/breadcrumbs'
+import { getBreadcrumbs } from '~/utils/breadcrumbs'
+import { createBreadcrumbStructuredData } from '~/utils/breadcrumbs.server'
 import type { Route } from './+types/route'
 
 export const meta: Route.MetaFunction = ({ matches, loaderData }) => {
