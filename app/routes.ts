@@ -63,9 +63,12 @@ export default [
   route('sitemap.xml', 'routes/sitemap/_index/route.ts'),
   ...prefix('sitemap', [
     route('sitemap-index.xml', 'routes/sitemap/sitemap-index/route.ts'),
-    route('*', 'routes/sitemap/sitemap/route.ts'),
+    route(':sitemap', 'routes/sitemap/sitemap/route.ts'),
   ]),
 
   // Robots
   route('robots.txt', 'routes/robots/route.ts'),
+
+  // Health Check
+  route('health', 'routes/health/route.ts'),
 ] satisfies RouteConfig
