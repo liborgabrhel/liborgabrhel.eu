@@ -52,6 +52,8 @@
     "app:build": "react-router build",
     "app:dev": "react-router dev",
     "app:start": "react-router-serve ./build/server/index.js",
+    "app:typecheck": "react-router typegen && tsc",
+    "app:typegen": "react-router typegen",
     "biome:check": "biome check",
     "biome:check:fix": "biome check --write",
     "biome:format": "biome format",
@@ -70,9 +72,7 @@
     "prisma:migrate:dev-init": "prisma migrate dev --name init --create-only",
     "prisma:migrate:reset": "prisma migrate reset",
     "prisma:studio": "prisma studio",
-    "test": "vitest run",
-    "typecheck": "react-router typegen && tsc",
-    "typegen": "react-router typegen"
+    "test": "vitest run"
   },
   "type": "module"
 }
