@@ -1,9 +1,10 @@
 import { createContentHash } from '~/utils/hash.server'
 import { getSitemapCount } from '~/utils/sitemap.server'
+import { getBaseUrl } from '~/utils/url.server'
 import type { Route } from './+types/route'
 
 export async function loader({ request }: Route.LoaderArgs) {
-  const baseUrl = new URL(request.url).origin
+  const baseUrl = getBaseUrl(request)
 
   const sitemapCount = await getSitemapCount()
 

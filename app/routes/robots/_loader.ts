@@ -1,8 +1,9 @@
 import { createContentHash } from '~/utils/hash.server'
+import { getBaseUrl } from '~/utils/url.server'
 import type { Route } from './+types/route'
 
 export async function loader({ request }: Route.LoaderArgs) {
-  const baseUrl = new URL(request.url).origin
+  const baseUrl = getBaseUrl(request)
 
   const robotsTxt = `User-agent: *
 Allow: /

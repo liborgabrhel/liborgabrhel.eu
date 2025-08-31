@@ -1,5 +1,6 @@
 import { createContentHash } from '~/utils/hash.server'
 import { getUrlsForSitemap } from '~/utils/sitemap.server'
+import { getBaseUrl } from '~/utils/url.server'
 import type { Route } from './+types/route'
 export async function loader({ params, request }: Route.LoaderArgs) {
   const { '*': sitemapPath } = params
@@ -17,7 +18,7 @@ export async function loader({ params, request }: Route.LoaderArgs) {
     throw new Response('Not Found', { status: 404 })
   }
 
-  const baseUrl = new URL(request.url).origin
+  const baseUrl = getBaseUrl(request)
 
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
