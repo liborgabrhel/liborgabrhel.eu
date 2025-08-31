@@ -1,0 +1,17 @@
+.description {
+  @layer component {
+    font-size: var(--font-size-small-text);
+    font-weight: 400;
+    line-height: var(--line-height-tight);
+    color: var(--text-secondary);
+    text-align: center;
+    text-shadow: var(--shadow-sm);
+    margin-block-end: 20px;
+    max-width: 280px;
+    width: 100%;
+
+    @media (width >= 768px) {
+      max-width: 320px;
+    }
+  }
+}

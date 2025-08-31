@@ -5,15 +5,16 @@ import styles from './_styles.module.css'
 
 type Props = {
   imageAlt?: string
-  caption: ReactNode
   imageUrl?: string
-} & Omit<ComponentProps<typeof Link>, 'children'>
+  overlay?: ReactNode
+} & ComponentProps<typeof Link>
 
 export const PolaroidLink = ({
   className,
   imageAlt = '',
-  caption,
   imageUrl,
+  overlay,
+  children,
   ...rest
 }: Props) => {
   return (
@@ -26,8 +27,9 @@ export const PolaroidLink = ({
             className={styles.photo}
             src={imageUrl}
           />
-          <figcaption className={styles.caption}>{caption}</figcaption>
+          <div className={styles.overlay}>{overlay}</div>
         </figure>
+        {children}
       </Link>
     </li>
   )
