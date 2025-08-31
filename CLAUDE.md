@@ -24,6 +24,10 @@ Uses pnpm as package manager:
 - `pnpm run test -- --ui` - Run tests with UI (if installed)
 - **IMPORTANT**: When creating utility functions, ALWAYS create corresponding test files
 - Test files should be named `*.test.ts` or `*.spec.ts` and placed alongside the utility file
+- **TDD APPROACH**: When possible and not instructed otherwise, use Test-Driven Development:
+  1. Write tests first to define expected behavior
+  2. Implement code to make tests pass
+  3. Refactor while keeping tests green
 
 ### Database Operations (Prisma)
 - `pnpm run prisma:generate` - Generate Prisma client
