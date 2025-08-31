@@ -16,7 +16,5 @@
  * ```
  */
 export function createAbsoluteUrl(baseUrl: string, path: string) {
-  // Remove trailing slash from path to avoid double slashes in root case
-  const cleanPath = path.replace(/\/$/, '')
-  return new URL(cleanPath, baseUrl)
+  return new URL(path, baseUrl)
 }
