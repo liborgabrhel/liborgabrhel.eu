@@ -1,5 +1,4 @@
 import type { SitemapUrl } from '~/types/sitemap'
-import { createAbsoluteUrl } from '~/utils/create-absolute-url'
 import { createContentHash } from '~/utils/hash.server'
 import { getUrlsForSitemap } from '~/utils/sitemap.server'
 import { parseSitemapFilename } from '~/utils/sitemap-filename.server'
@@ -13,7 +12,7 @@ const createSitemapXml = (urls: SitemapUrl[], baseUrl: string) =>
 ${urls
   .map(
     (url) => `  <url>
-    <loc>${createAbsoluteUrl(baseUrl, url.path).href}</loc>
+    <loc>${new URL(url.path, baseUrl).href}</loc>
     <lastmod>${url.lastmod}</lastmod>
     <changefreq>${url.changefreq}</changefreq>
     <priority>${url.priority}</priority>

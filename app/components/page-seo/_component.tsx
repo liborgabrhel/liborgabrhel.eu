@@ -1,4 +1,3 @@
-import { createAbsoluteUrl } from '~/utils/create-absolute-url'
 import { createTitle } from '~/utils/create-title'
 
 type Props = {
@@ -38,20 +37,20 @@ export const PageSeo = ({
   twitterCard = 'summary_large_image',
 }: Props) => {
   const title = createTitle(pageTitle)
-  const absoluteUrl = createAbsoluteUrl(baseUrl, pagePath)
+  const url = new URL(pagePath, baseUrl)
 
   return (
     <>
       <title>{title}</title>
       <meta content={metaDescription} name={'description'} />
       <meta content={metaRobots} name={'robots'} />
-      <link href={absoluteUrl.href} rel={'canonical'} />
+      <link href={url.href} rel={'canonical'} />
 
       {/* Open Graph Meta Tags */}
       <meta content={title} property={'og:title'} />
       <meta content={metaDescription} property={'og:description'} />
       <meta content={ogType} property={'og:type'} />
-      <meta content={absoluteUrl.href} property={'og:url'} />
+      <meta content={url.href} property={'og:url'} />
       <meta content={ogImageUrl} property={'og:image'} />
 
       {/* Twitter Meta Tags */}
