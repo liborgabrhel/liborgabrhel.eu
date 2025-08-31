@@ -1,3 +1,5 @@
+import { href } from 'react-router'
+import { createAbsoluteUrl } from '~/utils/create-absolute-url'
 import { createContentHash } from '~/utils/hash.server'
 import { getBaseUrl } from '~/utils/url.server'
 import type { Route } from './+types/route'
@@ -7,7 +9,7 @@ const createRobotsTxt = (baseUrl: string) =>
 User-agent: *
 Allow: /
 
-Sitemap: ${baseUrl}/sitemap/sitemap-index.xml
+Sitemap: ${createAbsoluteUrl(baseUrl, href('/sitemap/sitemap-index.xml'))}
 `.trim()
 
 export async function loader({ request }: Route.LoaderArgs) {

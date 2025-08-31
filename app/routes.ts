@@ -63,7 +63,7 @@ export default [
   route('sitemap.xml', 'routes/sitemap/_index/route.ts'),
   ...prefix('sitemap', [
     route('sitemap-index.xml', 'routes/sitemap/sitemap-index/route.ts'),
-    route(':sitemap', 'routes/sitemap/sitemap/route.ts'),
+    route(':file', 'routes/sitemap/sitemap/route.ts'),
   ]),
 
   // Robots

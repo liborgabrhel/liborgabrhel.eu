@@ -1,4 +1,7 @@
+import { href } from 'react-router'
+import { createAbsoluteUrl } from '~/utils/create-absolute-url'
 import { createContentHash } from '~/utils/hash.server'
+import { createSitemapFilename } from '~/utils/sitemap-filename'
 import { getSitemapCount } from '~/utils/sitemap.server'
 import { getBaseUrl } from '~/utils/url.server'
 import type { Route } from './+types/route'
@@ -10,7 +13,7 @@ const createSitemapIndexXml = (sitemapCount: number, baseUrl: string) =>
 ${Array.from(
   { length: sitemapCount },
   (_, index) => `  <sitemap>
-    <loc>${baseUrl}/sitemap/sitemap-${index}.xml</loc>
+    <loc>${createAbsoluteUrl(baseUrl, href('/sitemap/:file', { file: createSitemapFilename(index) }))}</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
   </sitemap>`,
 ).join('\n')}

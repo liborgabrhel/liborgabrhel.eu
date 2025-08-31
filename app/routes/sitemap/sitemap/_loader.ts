@@ -1,6 +1,8 @@
 import type { SitemapUrl } from '~/types/sitemap'
+import { createAbsoluteUrl } from '~/utils/create-absolute-url'
 import { createContentHash } from '~/utils/hash.server'
 import { getUrlsForSitemap } from '~/utils/sitemap.server'
+import { parseSitemapFilename } from '~/utils/sitemap-filename'
 import { getBaseUrl } from '~/utils/url.server'
 import type { Route } from './+types/route'
 
@@ -11,7 +13,7 @@ const createSitemapXml = (urls: SitemapUrl[], baseUrl: string) =>
 ${urls
   .map(
     (url) => `  <url>
-    <loc>${baseUrl}${url.path}</loc>
+    <loc>${createAbsoluteUrl(baseUrl, url.path)}</loc>
     <lastmod>${url.lastmod}</lastmod>
     <changefreq>${url.changefreq}</changefreq>
     <priority>${url.priority}</priority>
@@ -22,14 +24,12 @@ ${urls
 `.trim()
 
 export async function loader({ params, request }: Route.LoaderArgs) {
-  const { sitemap } = params
-  const match = sitemap?.match(/^sitemap-(\d+).xml$/)
+  const { file } = params
+  const index = parseSitemapFilename(file)
 
-  if (match === null) {
+  if (index === null) {
     throw new Response('Not Found', { status: 404 })
   }
-
-  const index = parseInt(match[1], 10)
   const urls = await getUrlsForSitemap(index)
 
   if (urls.length === 0) {
