@@ -2,13 +2,18 @@ import { createContentHash } from '~/utils/hash.server'
 import { getBaseUrl } from '~/utils/url.server'
 import type { Route } from './+types/route'
 
+const createRobotsTxt = (baseUrl: string) =>
+  `
+User-agent: *
+Allow: /
+
+Sitemap: ${baseUrl}/sitemap/sitemap-index.xml
+`.trim()
+
 export async function loader({ request }: Route.LoaderArgs) {
   const baseUrl = getBaseUrl(request)
 
-  const robotsTxt = `User-agent: *
-Allow: /
-  
-Sitemap: ${baseUrl}/sitemap/sitemap-index.xml`
+  const robotsTxt = createRobotsTxt(baseUrl)
 
   const contentHash = createContentHash(robotsTxt)
 
