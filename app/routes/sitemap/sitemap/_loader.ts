@@ -1,26 +1,12 @@
+import type { SitemapUrl } from '~/types/sitemap'
 import { createContentHash } from '~/utils/hash.server'
 import { getUrlsForSitemap } from '~/utils/sitemap.server'
 import { getBaseUrl } from '~/utils/url.server'
 import type { Route } from './+types/route'
-export async function loader({ params, request }: Route.LoaderArgs) {
-  const { '*': sitemapPath } = params
 
-  const match = sitemapPath?.match(/^sitemap-(\d+).xml$/)
-  if (match === null) {
-    throw new Response('Not Found', { status: 404 })
-  }
-
-  const index = parseInt(match[1], 10)
-
-  const urls = await getUrlsForSitemap(index)
-
-  if (urls.length === 0) {
-    throw new Response('Not Found', { status: 404 })
-  }
-
-  const baseUrl = getBaseUrl(request)
-
-  const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+const createSitemapXml = (urls: SitemapUrl[], baseUrl: string) =>
+  `
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls
   .map(
@@ -32,8 +18,26 @@ ${urls
   </url>`,
   )
   .join('\n')}
-</urlset>`
+</urlset>
+`.trim()
 
+export async function loader({ params, request }: Route.LoaderArgs) {
+  const { sitemap } = params
+  const match = sitemap?.match(/^sitemap-(\d+).xml$/)
+
+  if (match === null) {
+    throw new Response('Not Found', { status: 404 })
+  }
+
+  const index = parseInt(match[1], 10)
+  const urls = await getUrlsForSitemap(index)
+
+  if (urls.length === 0) {
+    throw new Response('Not Found', { status: 404 })
+  }
+
+  const baseUrl = getBaseUrl(request)
+  const sitemapXml = createSitemapXml(urls, baseUrl)
   const contentHash = createContentHash(sitemapXml)
 
   return new Response(sitemapXml, {
