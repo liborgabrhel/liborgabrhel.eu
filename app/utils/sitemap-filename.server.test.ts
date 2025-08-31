@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest'
-import { createSitemapFilename, parseSitemapFilename } from './sitemap-filename'
+import {
+  createSitemapFilename,
+  parseSitemapFilename,
+} from './sitemap-filename.server'
 
 describe('sitemap-filename', () => {
   describe('createSitemapFilename', () => {

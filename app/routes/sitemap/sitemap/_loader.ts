@@ -2,7 +2,7 @@ import type { SitemapUrl } from '~/types/sitemap'
 import { createAbsoluteUrl } from '~/utils/create-absolute-url'
 import { createContentHash } from '~/utils/hash.server'
 import { getUrlsForSitemap } from '~/utils/sitemap.server'
-import { parseSitemapFilename } from '~/utils/sitemap-filename'
+import { parseSitemapFilename } from '~/utils/sitemap-filename.server'
 import { getBaseUrl } from '~/utils/url.server'
 import type { Route } from './+types/route'
 

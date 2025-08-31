@@ -1,7 +1,7 @@
 import { href } from 'react-router'
 import { createAbsoluteUrl } from '~/utils/create-absolute-url'
 import { createContentHash } from '~/utils/hash.server'
-import { createSitemapFilename } from '~/utils/sitemap-filename'
+import { createSitemapFilename } from '~/utils/sitemap-filename.server'
 import { getSitemapCount } from '~/utils/sitemap.server'
 import { getBaseUrl } from '~/utils/url.server'
 import type { Route } from './+types/route'
