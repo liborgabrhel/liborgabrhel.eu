@@ -14,10 +14,12 @@ export const SiteHeader = ({ className, variant = 'default' }: Props) => {
   const isBeekeeperPage = pathname.startsWith(href('/beekeeper'))
   const isDeveloperPage = pathname.startsWith(href('/developer'))
 
+  const Headline = variant === 'default' ? 'h1' : 'p'
+
   return (
     <header className={clsx(styles.header, className)}>
       <section className={styles.content}>
-        <p
+        <Headline
           className={clsx(
             styles.headline,
             variant === 'default' && styles.headline_default,
@@ -27,7 +29,7 @@ export const SiteHeader = ({ className, variant = 'default' }: Props) => {
           )}
         >
           {SITE_NAME}
-        </p>
+        </Headline>
         <p
           className={clsx(
             styles.subheadline,
@@ -51,7 +53,7 @@ export const SiteHeader = ({ className, variant = 'default' }: Props) => {
         </p>
         {variant === 'default' && (
           <p className={styles.tagline}>
-            Buzz-worthy websites, bee-loved hives
+            <em>Buzz-worthy</em> websites, <em>bee-loved</em> hives
           </p>
         )}
       </section>
