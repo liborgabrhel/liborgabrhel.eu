@@ -1,6 +1,5 @@
 import { href } from 'react-router'
-import type { Breadcrumb } from '~/types/breadcrumb'
-import type { BreadcrumbMatch } from '~/types/match'
+import type { Breadcrumb, BreadcrumbMatch } from '~/types/breadcrumb'
 import type { Route } from './+types/route'
 
 type Match = BreadcrumbMatch<

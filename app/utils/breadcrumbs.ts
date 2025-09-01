@@ -1,6 +1,5 @@
 import type { UIMatch } from 'react-router'
-import type { Breadcrumb } from '~/types/breadcrumb'
-import type { BreadcrumbCapableMatch } from '~/types/match'
+import type { Breadcrumb, BreadcrumbCapableMatch } from '~/types/breadcrumb'
 
 /**
  * Type predicate to check if a match has breadcrumb capability.
