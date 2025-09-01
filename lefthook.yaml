@@ -1,35 +1,35 @@
 #   Refer for explanation to following link:
-    #   https://lefthook.dev/configuration/
+#   https://lefthook.dev/configuration/
 
-    pre-push:
-      parallel: true
-      jobs:
-        - name: check
-          run: pnpm biome:check:push {push_files}
-          glob: "*.{js,ts,cjs,mjs,jsx,tsx,json,jsonc,md,css}"
-        - name: typecheck
-          run: pnpm app:typecheck
-        - name: test
-          run: pnpm test
-        - name: prisma-format-check
-          run: pnpm prisma:format
-          glob: "*.prisma"
-          skip:
-            - sh: "git diff --name-only HEAD~1 HEAD | grep -v '\\.prisma$'"
-              reason: "No Prisma files changed"
+pre-push:
+  parallel: true
+  jobs:
+    - name: check
+      run: pnpm biome:check:push {push_files}
+      glob: "*.{js,ts,cjs,mjs,jsx,tsx,json,jsonc,md,css}"
+    - name: typecheck
+      run: pnpm app:typecheck
+    - name: test
+      run: pnpm test
+    - name: prisma-format-check
+      run: pnpm prisma:format
+      glob: "*.prisma"
+      skip:
+        - sh: "git diff --name-only HEAD~1 HEAD | grep -v '\\.prisma$'"
+          reason: "No Prisma files changed"
 
-    pre-commit:
-      parallel: true
-      jobs:
-        - name: format
-          run: pnpm biome:format:staged {staged_files}
-          glob: "*.{js,ts,cjs,mjs,jsx,tsx,json,jsonc,md,css}"
-          stage_fixed: true
-        - name: lint
-          run: pnpm biome:lint:staged {staged_files}
-          glob: "*.{js,ts,cjs,mjs,jsx,tsx}"
-          stage_fixed: true
-        - name: prisma-format
-          run: pnpm prisma:format
-          glob: "*.prisma"
-          stage_fixed: true
+pre-commit:
+  parallel: true
+  jobs:
+    - name: format
+      run: pnpm biome:format:staged {staged_files}
+      glob: "*.{js,ts,cjs,mjs,jsx,tsx,json,jsonc,md,css}"
+      stage_fixed: true
+    - name: lint
+      run: pnpm biome:lint:staged {staged_files}
+      glob: "*.{js,ts,cjs,mjs,jsx,tsx}"
+      stage_fixed: true
+    - name: prisma-format
+      run: pnpm prisma:format
+      glob: "*.prisma"
+      stage_fixed: true
