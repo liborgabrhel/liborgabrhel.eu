@@ -32,13 +32,15 @@ export const handle = {
 For SEO benefits, add structured data to your route's meta function:
 
 ```typescript
-import type { Match } from '~/types/match'
-import { getBreadcrumbs } from '~/utils/breadcrumbs'
-import { createBreadcrumbStructuredData } from '~/utils/breadcrumbs.server'
+import type { UIMatch } from 'react-router'
+import {
+  createBreadcrumbStructuredData,
+  getBreadcrumbs,
+} from '~/utils/breadcrumbs'
 import type { Route } from './+types/route'
 
 export const meta: Route.MetaFunction = ({ matches, loaderData }) => {
-  const breadcrumbs = getBreadcrumbs(matches as unknown as Match[])
+  const breadcrumbs = getBreadcrumbs(matches as UIMatch[])
   const breadcrumbStructuredData = createBreadcrumbStructuredData(
     breadcrumbs,
     loaderData.baseUrl,
@@ -51,15 +53,15 @@ export const meta: Route.MetaFunction = ({ matches, loaderData }) => {
 
 Use the breadcrumbs component in your layout:
 
-```typescript
+```tsx
 import { Breadcrumbs } from '~/components/breadcrumbs'
 
 export default function Layout() {
   return (
-    <div>
+    <>
       <Breadcrumbs />
       {/* rest of layout */}
-    </div>
+    </>
   )
 }
 ```
@@ -68,13 +70,21 @@ export default function Layout() {
 
 ### Core Functions
 
-#### `getBreadcrumbs(matches: Match[]): Breadcrumb[]`
+#### `getBreadcrumbs(matches: UIMatch[]): Breadcrumb[]`
 
 Extracts breadcrumb data from React Router matches.
 
-- **Parameters**: `matches` - Array of React Router match objects
+- **Parameters**: `matches` - Array of React Router UIMatch objects
 - **Returns**: Array of breadcrumb objects with `label` and `path`
-- **Behavior**: Filters for routes that have breadcrumb handles and maps them to breadcrumb objects
+- **Behavior**: Uses type predicate `hasBreadcrumb()` to filter for routes that have breadcrumb handles and maps them to breadcrumb objects
+
+#### `hasBreadcrumb(match: UIMatch): match is BreadcrumbCapableMatch`
+
+Type predicate to check if a match has breadcrumb capability.
+
+- **Parameters**: `match` - A React Router UIMatch object
+- **Returns**: Type predicate indicating if the match has breadcrumb functionality
+- **Behavior**: Validates that `match.handle` exists and has a breadcrumb function
 
 #### `createBreadcrumbStructuredData(breadcrumbs: Breadcrumb[], baseUrl: string)`
 
@@ -97,13 +107,33 @@ export type Breadcrumb = {
 }
 ```
 
-#### `Match`
+#### `BreadcrumbHandle`
 
 ```typescript
-export type Match = UIMatch<
-  unknown,
-  { breadcrumb: (match?: unknown) => Breadcrumb }
->
+export interface BreadcrumbHandle {
+  breadcrumb: (match: UIMatch) => Breadcrumb
+}
+```
+
+#### `BreadcrumbCapableMatch`
+
+```typescript
+export interface BreadcrumbCapableMatch<TData = unknown>
+  extends UIMatch<TData, BreadcrumbHandle> {
+  handle: BreadcrumbHandle
+}
+```
+
+#### `BreadcrumbMatch`
+
+```typescript
+export interface BreadcrumbMatch<
+  TData = unknown,
+  TParams extends Params = Params,
+> extends UIMatch<TData, BreadcrumbHandle> {
+  params: TParams
+  loaderData: TData
+}
 ```
 
 ## Features

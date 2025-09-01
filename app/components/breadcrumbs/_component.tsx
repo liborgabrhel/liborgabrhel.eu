@@ -1,6 +1,5 @@
 import { clsx } from 'clsx'
 import { href, NavLink, useMatches } from 'react-router'
-import type { Match } from '~/types/match'
 import { getBreadcrumbs } from '~/utils/breadcrumbs'
 import styles from './_styles.module.css'
 
@@ -9,7 +8,7 @@ type Props = {
 }
 
 export const Breadcrumbs = ({ className }: Props) => {
-  const matches = useMatches() as unknown as Match[]
+  const matches = useMatches()
   const breadcrumbs = getBreadcrumbs(matches)
 
   return (
