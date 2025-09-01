@@ -2,11 +2,6 @@
 
 # dependencies
 /node_modules
-/.pnp
-.pnp.*
-
-# development
-pnpm-workspace.yaml
 
 # testing
 /coverage
