@@ -13,6 +13,7 @@
     "@prisma/client": "6.15.0",
     "@react-router/node": "7.8.2",
     "@react-router/serve": "7.8.2",
+    "@react-spring/web": "10.0.1",
     "@tiptap/extension-placeholder": "3.3.0",
     "@tiptap/pm": "3.3.0",
     "@tiptap/react": "3.3.0",

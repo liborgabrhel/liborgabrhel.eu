@@ -1,13 +1,9 @@
 @layer route {
   .developer_list_item {
-    &:before {
-      color: var(--teal-600);
-    }
+    --arrow-color: var(--teal-600);
   }
 
   .beekeeper_list_item {
-    &:before {
-      color: var(--amber-600);
-    }
+    --arrow-color: var(--amber-600);
   }
 }
