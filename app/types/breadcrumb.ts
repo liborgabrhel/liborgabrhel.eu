@@ -13,7 +13,6 @@ export interface BreadcrumbMatch<
   TData = unknown,
   TParams extends Params = Params,
 > extends UIMatch<TData, BreadcrumbHandle> {
-  loaderData: TData
   params: TParams
 }
 
