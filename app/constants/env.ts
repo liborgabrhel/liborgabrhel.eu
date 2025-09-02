@@ -1,3 +1,5 @@
 export const ENV_KEYS = {
+  DATABASE_PATH: 'DATABASE_PATH',
+  DATABASE_URL: 'DATABASE_URL',
   NODE_ENV: 'NODE_ENV',
 } as const
