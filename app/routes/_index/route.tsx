@@ -1,5 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
+import { useState } from 'react'
 import { href } from 'react-router'
 import { BeekeeperOverlay } from '~/components/beekeeper-overlay'
 import { DeveloperOverlay } from '~/components/developer-overlay'
@@ -22,6 +23,17 @@ export { loader } from './_loader'
 export default function RouteComponent({ loaderData }: Route.ComponentProps) {
   const { baseUrl } = loaderData
 
+  const [isDeveloperLinkHovered, setIsDeveloperLinkHovered] = useState(false)
+  const [isBeekeeperLinkHovered, setIsBeekeeperLinkHovered] = useState(false)
+
+  const handleDeveloperLinkHover = (isHovered: boolean) => () => {
+    setIsDeveloperLinkHovered(isHovered)
+  }
+
+  const handleBeekeeperLinkHover = (isHovered: boolean) => () => {
+    setIsBeekeeperLinkHovered(isHovered)
+  }
+
   return (
     <>
       <PageSeo
@@ -38,7 +50,9 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
         <PolaroidLinkGroup>
           <PolaroidLink
             imageUrl={developerImage}
-            overlay={<DeveloperOverlay />}
+            onMouseEnter={handleDeveloperLinkHover(true)}
+            onMouseLeave={handleDeveloperLinkHover(false)}
+            overlay={<DeveloperOverlay isHovered={isDeveloperLinkHovered} />}
             to={href('/developer')}
             viewTransition={true}
           >
@@ -63,7 +77,9 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
           </PolaroidLink>
           <PolaroidLink
             imageUrl={beekeeperImage}
-            overlay={<BeekeeperOverlay />}
+            onMouseEnter={handleBeekeeperLinkHover(true)}
+            onMouseLeave={handleBeekeeperLinkHover(false)}
+            overlay={<BeekeeperOverlay isHovered={isBeekeeperLinkHovered} />}
             to={href('/beekeeper')}
             viewTransition={true}
           >

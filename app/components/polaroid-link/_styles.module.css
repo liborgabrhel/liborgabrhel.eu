@@ -58,28 +58,15 @@
 .overlay {
   overflow: hidden;
   grid-area: photo;
-
-  & > svg {
-    transition: opacity 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    opacity: 0;
-    animation: slideInfinite var(--animation-duration, 6000ms) linear infinite;
-  }
+  opacity: 0;
+  transition: opacity 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .link:hover .polaroid {
   box-shadow: var(--shadow-md);
   transform: translate3d(0, -4px, 0);
 
-  .overlay > svg {
+  .overlay {
     opacity: 1;
-  }
-}
-
-@keyframes slideInfinite {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
   }
 }
