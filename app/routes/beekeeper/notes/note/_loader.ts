@@ -17,7 +17,7 @@ export async function loader({ request, params }: Route.LoaderArgs) {
   if (note === null) {
     throw new Response(null, {
       status: 404,
-      statusText: 'The waggle dance gave wrong directions',
+      statusText: 'The waggle dance gave wrong directions.',
     })
   }
 

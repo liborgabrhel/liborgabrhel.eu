@@ -1,9 +1,11 @@
-@layer layout {
-  body {
+body {
+  @layer layout {
     background: var(--bg-primary);
   }
+}
 
-  .site_header {
+.site_header {
+  @layer layout {
     margin-block: 100px;
 
     @media (width >= 768px) {

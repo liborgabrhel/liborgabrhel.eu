@@ -1,0 +1,23 @@
+:root {
+  @layer component {
+    --error-section-stack-trace-background-color: var(--slate-900);
+    --error-section-stack-trace-color: var(--slate-50);
+  }
+}
+
+.preformatedText {
+  white-space: pre;
+  overflow-x: auto;
+  background-color: var(--error-section-stack-trace-background-color);
+  border-radius: 16px;
+  padding: 16px;
+  margin-block: 16px;
+}
+
+.code {
+  font-family: monospace;
+  font-size: var(--font-size-note-text);
+  font-weight: 400;
+  line-height: var(--line-height-compact);
+  color: var(--error-section-stack-trace-color);
+}

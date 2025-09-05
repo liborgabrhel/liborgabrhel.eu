@@ -1,0 +1,6 @@
+.section {
+  @layer variant {
+    margin-block: 32px;
+    justify-items: center;
+  }
+}

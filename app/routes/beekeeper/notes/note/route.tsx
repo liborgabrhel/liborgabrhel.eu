@@ -1,6 +1,12 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { isRouteErrorResponse } from 'react-router'
+import { href } from 'react-router'
+import { ErrorSection } from '~/components/error-section'
+import { ErrorSectionHeading } from '~/components/error-section-heading'
+import { ErrorSectionLinkButton } from '~/components/error-section-link-button'
+import { ErrorSectionStackTrace } from '~/components/error-section-stack-trace'
+import { ErrorSectionSubheading } from '~/components/error-section-subheading'
+import { useErrorBoundaryError } from '~/hooks/use-error-boundary-error'
 import type { Route } from './+types/route'
 
 export { handle } from './_handle'
@@ -19,27 +25,16 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
-  let message = 'Oopsie!'
-  let details = 'An unexpected error occurred.'
-  let stack: string | undefined
-
-  if (isRouteErrorResponse(error)) {
-    message = `${error.status}`
-    details = error.statusText || details
-  } else if (import.meta.env.DEV && error && error instanceof Error) {
-    details = error.message
-    stack = error.stack
-  }
+  const { message, details, stack } = useErrorBoundaryError(error)
 
   return (
-    <>
-      <h1>{message}</h1>
-      <p>{details}</p>
-      {stack && (
-        <pre style={{ overflow: 'scroll', width: '100%' }}>
-          <code>{stack}</code>
-        </pre>
-      )}
-    </>
+    <ErrorSection>
+      <ErrorSectionHeading>{message}</ErrorSectionHeading>
+      <ErrorSectionSubheading>{details}</ErrorSectionSubheading>
+      <ErrorSectionLinkButton to={href('/beekeeper/notes')}>
+        Fly back to safety
+      </ErrorSectionLinkButton>
+      {stack && <ErrorSectionStackTrace>{stack}</ErrorSectionStackTrace>}
+    </ErrorSection>
   )
 }

@@ -1,16 +1,18 @@
 .content {
-  --viewport-height: 100vh;
+  @layer component {
+    --viewport-height: 100vh;
 
-  @supports (height: 100dvh) {
-    --viewport-height: 100dvh;
+    @supports (height: 100dvh) {
+      --viewport-height: 100dvh;
+    }
+
+    display: grid;
+    position: relative;
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-auto-flow: row;
+    justify-items: center;
+    align-content: start;
+    margin-block: 32px;
   }
-
-  display: grid;
-  position: relative;
-  width: 100%;
-  grid-template-columns: 1fr;
-  grid-auto-flow: row;
-  justify-items: center;
-  align-content: start;
-  margin-block: 32px;
 }

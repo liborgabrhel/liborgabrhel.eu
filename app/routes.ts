@@ -12,30 +12,56 @@ export default [
   // Home & Contact
   layout('routes/__layout/route.tsx', [
     index('routes/_index/route.tsx'),
+
     route('contact', 'routes/contact/route.tsx'),
+
+    // Not Found - 404
+    route('*', 'routes/not-found/route.tsx'),
   ]),
 
   // Developer
   ...prefix('developer', [
     layout('routes/developer/__layout/route.tsx', [
+      // Home
       index('routes/developer/_index/route.tsx'),
+
+      // Portfolio
       route('portfolio', 'routes/developer/portfolio/route.tsx'),
+
       layout('routes/developer/notes/__layout/route.tsx', [
+        // Notes
         route('notes', 'routes/developer/notes/_index/route.tsx'),
+
+        // Note
         route('notes/:slug', 'routes/developer/notes/note/route.tsx'),
       ]),
+
+      // Not Found - 404
+      route('*', 'routes/developer/not-found/route.tsx'),
     ]),
   ]),
 
   // Beekeeper
   ...prefix('beekeeper', [
     layout('routes/beekeeper/__layout/route.tsx', [
+      // Home
       index('routes/beekeeper/_index/route.tsx'),
+
+      // Apiary
       route('apiary', 'routes/beekeeper/apiary/route.tsx'),
-      layout('routes/beekeeper/notes/__layout/route.tsx', [
-        route('notes', 'routes/beekeeper/notes/_index/route.tsx'),
-        route('notes/:slug', 'routes/beekeeper/notes/note/route.tsx'),
+
+      ...prefix('notes', [
+        layout('routes/beekeeper/notes/__layout/route.tsx', [
+          // Notes
+          index('routes/beekeeper/notes/_index/route.tsx'),
+
+          // Note
+          route(':slug', 'routes/beekeeper/notes/note/route.tsx'),
+        ]),
       ]),
+
+      // Not Found - 404
+      route('*', 'routes/beekeeper/not-found/route.tsx'),
     ]),
   ]),
 

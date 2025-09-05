@@ -1,5 +1,5 @@
-@layer component {
-  .listItem {
+.listItem {
+  @layer component {
     --arrow-color: var(--text-primary);
 
     display: grid;

@@ -19,7 +19,12 @@ export const PolaroidLink = ({
 }: Props) => {
   return (
     <li className={clsx(styles.listItem, className)}>
-      <Link className={styles.link} {...rest}>
+      <Link
+        className={styles.link}
+        prefetch={'intent'}
+        viewTransition={true}
+        {...rest}
+      >
         <figure className={styles.polaroid}>
           <img
             alt={imageAlt}

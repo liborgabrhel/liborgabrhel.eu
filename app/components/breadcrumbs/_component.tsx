@@ -33,6 +33,7 @@ export const Breadcrumbs = ({ className }: Props) => {
                   )
                 }
                 end={true}
+                prefetch={'intent'}
                 to={breadcrumb.path}
                 viewTransition={true}
               >

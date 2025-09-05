@@ -58,10 +58,10 @@
   --bg-muted: #f8fafc;
 
   /* Text Colors */
-  --text-primary: #1e293b;
-  --text-secondary: #64748b;
-  --text-muted: #94a3b8;
-  --text-inverse: #ffffff;
+  --text-primary: #1e293b; /* slate-800 */
+  --text-secondary: #64748b; /* slate-500 */
+  --text-muted: #94a3b8; /* slate-400 */
+  --text-inverse: #ffffff; /* white */
 
   /* Brand Gradients */
   --gradient-teal: linear-gradient(135deg, #14b8a6, #0d9488);

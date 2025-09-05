@@ -14,9 +14,9 @@ export { meta } from './_meta'
 export default function LayoutRouteComponent() {
   return (
     <>
-      <SiteHeader className={styles.site_header} variant={'simple'} />
-      <SiteContent>
-        <Breadcrumbs />
+      <SiteHeader className={styles.siteHeader} />
+      <SiteContent className={styles.siteContent}>
+        <Breadcrumbs className={styles.breadcrumbs} />
         <Outlet />
       </SiteContent>
       <SiteFooter />

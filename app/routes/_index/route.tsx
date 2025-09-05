@@ -4,6 +4,10 @@ import { useState } from 'react'
 import { href } from 'react-router'
 import { BeekeeperOverlay } from '~/components/beekeeper-overlay'
 import { DeveloperOverlay } from '~/components/developer-overlay'
+import { ErrorSection } from '~/components/error-section'
+import { ErrorSectionHeading } from '~/components/error-section-heading'
+import { ErrorSectionStackTrace } from '~/components/error-section-stack-trace'
+import { ErrorSectionSubheading } from '~/components/error-section-subheading'
 import { PageSection } from '~/components/page-section'
 import { PageSeo } from '~/components/page-seo'
 import { PolaroidLinkDescription } from '~/components/polariod-link-description'
@@ -12,6 +16,7 @@ import { PolaroidLinkHeading } from '~/components/polariod-link-heading'
 import { PolaroidLinkList } from '~/components/polariod-link-list'
 import { PolaroidLinkListItem } from '~/components/polariod-link-list-item'
 import { PolaroidLink } from '~/components/polaroid-link'
+import { useErrorBoundaryError } from '~/hooks/use-error-boundary-error'
 import { seo } from './_seo'
 import styles from './_styles.module.css'
 import type { Route } from './+types/route'
@@ -54,7 +59,6 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
             onMouseLeave={handleDeveloperLinkHover(false)}
             overlay={<DeveloperOverlay isHovered={isDeveloperLinkHovered} />}
             to={href('/developer')}
-            viewTransition={true}
           >
             <PolaroidLinkHeading>Frontend Developer</PolaroidLinkHeading>
             <PolaroidLinkDescription>
@@ -81,7 +85,6 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
             onMouseLeave={handleBeekeeperLinkHover(false)}
             overlay={<BeekeeperOverlay isHovered={isBeekeeperLinkHovered} />}
             to={href('/beekeeper')}
-            viewTransition={true}
           >
             <PolaroidLinkHeading>Beekeeper</PolaroidLinkHeading>
             <PolaroidLinkDescription>
@@ -106,5 +109,17 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
         </PolaroidLinkGroup>
       </PageSection>
     </>
+  )
+}
+
+export function ErrorBoundary({ error }: { error: Route.ErrorBoundaryProps }) {
+  const { message, details, stack } = useErrorBoundaryError(error)
+
+  return (
+    <ErrorSection>
+      <ErrorSectionHeading>{message}</ErrorSectionHeading>
+      <ErrorSectionSubheading>{details}</ErrorSectionSubheading>
+      {stack && <ErrorSectionStackTrace>{stack}</ErrorSectionStackTrace>}
+    </ErrorSection>
   )
 }

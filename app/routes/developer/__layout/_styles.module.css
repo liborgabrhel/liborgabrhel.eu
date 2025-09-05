@@ -1,15 +1,36 @@
 @layer layout {
+  :root {
+    --error-section-heading-color: var(--teal-800);
+    --error-section-link-button-background-color: var(--teal-700);
+    --error-section-stack-trace-background-color: var(--teal-900);
+    --error-section-stack-trace-color: var(--teal-50);
+  }
+
   body {
     &:global(.developer) {
       background: var(--bg-developer);
     }
   }
+}
 
-  .site_header {
+.siteHeader {
+  @layer layout {
     margin-block: 16px;
 
     @media (width >= 768px) {
       margin-block: 32px;
     }
+  }
+}
+
+.siteContent {
+  @layer layout {
+    margin-block-start: 0;
+  }
+}
+
+.breadcrumbs {
+  @layer layout {
+    margin-block-end: 32px;
   }
 }

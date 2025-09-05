@@ -1,6 +1,11 @@
 // noinspection JSUnusedGlobalSymbols
 
+import { ErrorSection } from '~/components/error-section'
+import { ErrorSectionHeading } from '~/components/error-section-heading'
+import { ErrorSectionStackTrace } from '~/components/error-section-stack-trace'
+import { ErrorSectionSubheading } from '~/components/error-section-subheading'
 import { PageSeo } from '~/components/page-seo'
+import { useErrorBoundaryError } from '~/hooks/use-error-boundary-error'
 import { seo } from './_seo'
 import type { Route } from './+types/route'
 
@@ -25,5 +30,17 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
 
       <h2>Apiary</h2>
     </>
+  )
+}
+
+export function ErrorBoundary({ error }: { error: Route.ErrorBoundaryProps }) {
+  const { message, details, stack } = useErrorBoundaryError(error)
+
+  return (
+    <ErrorSection>
+      <ErrorSectionHeading>{message}</ErrorSectionHeading>
+      <ErrorSectionSubheading>{details}</ErrorSectionSubheading>
+      {stack && <ErrorSectionStackTrace>{stack}</ErrorSectionStackTrace>}
+    </ErrorSection>
   )
 }

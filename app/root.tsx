@@ -9,13 +9,13 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useLocation,
 } from 'react-router'
 import '~/styles/globals.css'
 import '~/styles/fonts.css'
 import '~/styles/colors.css'
 import '~/styles/sizes.css'
 import { clsx } from 'clsx'
+import { useSubdirectory } from '~/hooks/use-subdirectory'
 import type { Route } from './+types/root'
 
 export const links: Route.LinksFunction = () => [
@@ -32,10 +32,7 @@ export const handle = {
 }
 
 export function Layout({ children }: { children: ReactNode }) {
-  const location = useLocation()
-
-  const isBeekeeperPage = location.pathname.startsWith(href('/beekeeper'))
-  const isDeveloperPage = location.pathname.startsWith(href('/developer'))
+  const { isDeveloperSubdirectory, isBeekeeperSubdirectory } = useSubdirectory()
 
   // noinspection HtmlRequiredTitleElement
   return (
@@ -48,8 +45,8 @@ export function Layout({ children }: { children: ReactNode }) {
       </head>
       <body
         className={clsx(
-          isBeekeeperPage && 'beekeeper',
-          isDeveloperPage && 'developer',
+          isBeekeeperSubdirectory && 'beekeeper',
+          isDeveloperSubdirectory && 'developer',
         )}
       >
         {children}

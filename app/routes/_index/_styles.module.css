@@ -1,9 +1,11 @@
-@layer route {
-  .developer_list_item {
+.developer_list_item {
+  @layer route {
     --arrow-color: var(--teal-600);
   }
+}
 
-  .beekeeper_list_item {
+.beekeeper_list_item {
+  @layer route {
     --arrow-color: var(--amber-600);
   }
 }

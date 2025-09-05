@@ -1,0 +1,15 @@
+:root {
+  @layer component {
+    --error-section-heading-color: var(--text-primary);
+  }
+}
+
+.heading {
+  @layer component {
+    font-size: var(--font-size-heading-1);
+    font-weight: 900;
+    line-height: var(--line-height-tight);
+    text-align: center;
+    color: var(--error-section-heading-color);
+  }
+}

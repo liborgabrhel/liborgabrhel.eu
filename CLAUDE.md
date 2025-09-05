@@ -75,6 +75,12 @@ Components are organized in `app/components/` with this structure:
 - `_styles.module.css` - Component-specific CSS modules
 - `index.ts` - Barrel export
 
+**Component Conventions:**
+- Always name the rest parameter in prop destructuring as "...rest" (not "...props" or other variations)
+- Use `type` (not `interface`) for Props definitions and always name it `Props`
+- Export components as named exports (not default exports) from `_component.tsx`
+- Use barrel exports in `index.ts` to re-export the component
+
 #### Database Schema
 Prisma schema defines a `Note` model with:
 - `NoteType` enum for DEVELOPER/BEEKEEPER categorization

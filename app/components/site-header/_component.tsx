@@ -1,20 +1,17 @@
 import { clsx } from 'clsx'
-import { href, useLocation } from 'react-router'
 import { SITE_NAME } from '~/constants/site'
+import { useSubdirectory } from '~/hooks/use-subdirectory'
 import styles from './_styles.module.css'
 
 type Props = {
   className?: string
-  variant?: 'default' | 'simple'
 }
 
-export const SiteHeader = ({ className, variant = 'default' }: Props) => {
-  const { pathname } = useLocation()
+export const SiteHeader = ({ className }: Props) => {
+  const { isDeveloperSubdirectory, isBeekeeperSubdirectory } = useSubdirectory()
 
-  const isBeekeeperPage = pathname.startsWith(href('/beekeeper'))
-  const isDeveloperPage = pathname.startsWith(href('/developer'))
-
-  const Headline = variant === 'default' ? 'h1' : 'p'
+  const Headline =
+    isDeveloperSubdirectory || isBeekeeperSubdirectory ? 'p' : 'h1'
 
   return (
     <header className={clsx(styles.header, className)}>
@@ -22,10 +19,11 @@ export const SiteHeader = ({ className, variant = 'default' }: Props) => {
         <Headline
           className={clsx(
             styles.headline,
-            variant === 'default' && styles.headline_default,
-            variant === 'simple' && styles.headline_simple,
-            isBeekeeperPage && styles.headline_beekeeper,
-            isDeveloperPage && styles.headline_developer,
+            isDeveloperSubdirectory || isBeekeeperSubdirectory
+              ? styles.headline_simple
+              : styles.headline_default,
+            isBeekeeperSubdirectory && styles.headline_beekeeper,
+            isDeveloperSubdirectory && styles.headline_developer,
           )}
         >
           {SITE_NAME}
@@ -33,25 +31,35 @@ export const SiteHeader = ({ className, variant = 'default' }: Props) => {
         <p
           className={clsx(
             styles.subheadline,
-            variant === 'default' && styles.subheadlineDefault,
-            variant === 'simple' && styles.subheadlineSimple,
+            isDeveloperSubdirectory || isBeekeeperSubdirectory
+              ? styles.subheadlineSimple
+              : styles.subheadlineDefault,
           )}
         >
-          <span className={clsx(isBeekeeperPage && styles.subheadlineHidden)}>
+          <span
+            className={clsx(
+              isBeekeeperSubdirectory && styles.subheadlineHidden,
+            )}
+          >
             Frontend Developer
           </span>
           <span
             className={clsx(
-              (isDeveloperPage || isBeekeeperPage) && styles.subheadlineHidden,
+              (isDeveloperSubdirectory || isBeekeeperSubdirectory) &&
+                styles.subheadlineHidden,
             )}
           >
             {' & '}
           </span>
-          <span className={clsx(isDeveloperPage && styles.subheadlineHidden)}>
+          <span
+            className={clsx(
+              isDeveloperSubdirectory && styles.subheadlineHidden,
+            )}
+          >
             Beekeeper
           </span>
         </p>
-        {variant === 'default' && (
+        {!(isDeveloperSubdirectory || isBeekeeperSubdirectory) && (
           <p className={styles.tagline}>
             <em>Buzz-worthy</em> websites, <em>bee-loved</em> hives
           </p>
