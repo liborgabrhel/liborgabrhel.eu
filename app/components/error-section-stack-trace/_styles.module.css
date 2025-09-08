@@ -1,11 +1,13 @@
-:root {
-  @layer component {
+@layer component {
+  body {
     --error-section-stack-trace-background-color: var(--slate-900);
     --error-section-stack-trace-color: var(--slate-50);
   }
 }
 
 .preformatedText {
+  position: relative;
+  width: 100%;
   white-space: pre;
   overflow-x: auto;
   background-color: var(--error-section-stack-trace-background-color);

@@ -1,0 +1,28 @@
+@layer component {
+  body {
+    --call-to-action-section-background-color: var(--slate-50);
+    --call-to-action-section-border-color: var(--slate-300);
+  }
+}
+
+.section {
+  @layer variant {
+    margin-block-end: 32px;
+  }
+}
+
+.card {
+  display: grid;
+  position: relative;
+  width: 100%;
+  grid-template-columns: 1fr;
+  grid-auto-flow: row;
+  grid-auto-rows: auto;
+  padding: 24px;
+  justify-items: center;
+  gap: 16px;
+  background-color: var(--call-to-action-section-background-color);
+  border-top: 4px solid var(--call-to-action-section-border-color);
+  box-shadow: var(--shadow-base);
+  border-radius: 0 0 8px 8px;
+}

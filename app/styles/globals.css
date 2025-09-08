@@ -6,12 +6,15 @@
   }
 
   body {
+    --body-background: var(--bg-primary);
+
     display: grid;
     position: relative;
     width: 100%;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
     margin: 0;
+    background: var(--body-background);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

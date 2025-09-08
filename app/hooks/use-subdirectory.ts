@@ -30,9 +30,15 @@ export function useSubdirectory() {
 
   const isBeekeeperSubdirectory = pathname.startsWith(href('/beekeeper'))
   const isDeveloperSubdirectory = pathname.startsWith(href('/developer'))
+  const isContactSubdirectory = pathname.startsWith(href('/contact'))
+
+  const isSubdirectory =
+    isBeekeeperSubdirectory || isDeveloperSubdirectory || isContactSubdirectory
 
   return {
     isBeekeeperSubdirectory,
+    isContactSubdirectory,
     isDeveloperSubdirectory,
+    isSubdirectory,
   }
 }

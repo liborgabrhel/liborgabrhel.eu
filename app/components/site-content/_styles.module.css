@@ -14,5 +14,6 @@
     justify-items: center;
     align-content: start;
     margin-block: 32px;
+    row-gap: 32px;
   }
 }

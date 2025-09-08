@@ -1,5 +1,5 @@
-:root {
-  @layer component {
+@layer component {
+  body {
     --error-section-heading-color: var(--text-primary);
   }
 }

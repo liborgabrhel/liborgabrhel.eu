@@ -8,10 +8,10 @@ type Props = {
 }
 
 export const SiteHeader = ({ className }: Props) => {
-  const { isDeveloperSubdirectory, isBeekeeperSubdirectory } = useSubdirectory()
+  const { isDeveloperSubdirectory, isBeekeeperSubdirectory, isSubdirectory } =
+    useSubdirectory()
 
-  const Headline =
-    isDeveloperSubdirectory || isBeekeeperSubdirectory ? 'p' : 'h1'
+  const Headline = isSubdirectory ? 'p' : 'h1'
 
   return (
     <header className={clsx(styles.header, className)}>
@@ -19,9 +19,7 @@ export const SiteHeader = ({ className }: Props) => {
         <Headline
           className={clsx(
             styles.headline,
-            isDeveloperSubdirectory || isBeekeeperSubdirectory
-              ? styles.headline_simple
-              : styles.headline_default,
+            isSubdirectory ? styles.headline_simple : styles.headline_default,
             isBeekeeperSubdirectory && styles.headline_beekeeper,
             isDeveloperSubdirectory && styles.headline_developer,
           )}
@@ -31,7 +29,7 @@ export const SiteHeader = ({ className }: Props) => {
         <p
           className={clsx(
             styles.subheadline,
-            isDeveloperSubdirectory || isBeekeeperSubdirectory
+            isSubdirectory
               ? styles.subheadlineSimple
               : styles.subheadlineDefault,
           )}
@@ -59,7 +57,7 @@ export const SiteHeader = ({ className }: Props) => {
             Beekeeper
           </span>
         </p>
-        {!(isDeveloperSubdirectory || isBeekeeperSubdirectory) && (
+        {!isSubdirectory && (
           <p className={styles.tagline}>
             <em>Buzz-worthy</em> websites, <em>bee-loved</em> hives
           </p>

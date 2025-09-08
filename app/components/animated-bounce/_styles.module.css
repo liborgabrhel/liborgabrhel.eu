@@ -1,0 +1,10 @@
+.bounce {
+  @layer component {
+    display: inline-block;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    color: inherit;
+    line-height: inherit;
+  }
+}

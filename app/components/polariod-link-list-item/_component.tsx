@@ -1,7 +1,7 @@
-import { animated, useSpring } from '@react-spring/web'
 import { clsx } from 'clsx'
 import type { ComponentProps } from 'react'
 import { useState } from 'react'
+import { AnimatedBounce } from '../animated-bounce'
 import styles from './_styles.module.css'
 
 type Props = ComponentProps<'li'>
@@ -13,23 +13,6 @@ export const PolaroidLinkListItem = ({
 }: Props) => {
   const [isHovered, setIsHovered] = useState(false)
 
-  const arrowSpring = useSpring({
-    config: {
-      friction: 26,
-      tension: 220,
-    },
-    from: { x: 0 },
-    loop: isHovered,
-    to: async (next) => {
-      if (isHovered) {
-        await next({ x: -2 })
-        await next({ x: 0 })
-      } else {
-        await next({ x: 0 })
-      }
-    },
-  })
-
   return (
     <li
       className={clsx(styles.listItem, className)}
@@ -37,9 +20,15 @@ export const PolaroidLinkListItem = ({
       onMouseLeave={() => setIsHovered(false)}
       {...rest}
     >
-      <animated.span className={styles.arrow} style={arrowSpring}>
+      <AnimatedBounce
+        axis="x"
+        className={styles.arrow}
+        from={0}
+        isAnimating={isHovered}
+        to={-2}
+      >
         →
-      </animated.span>
+      </AnimatedBounce>
       {children}
     </li>
   )

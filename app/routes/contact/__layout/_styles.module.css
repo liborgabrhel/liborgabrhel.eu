@@ -1,0 +1,21 @@
+.siteHeader {
+  @layer layout {
+    margin-block: 16px;
+
+    @media (width >= 768px) {
+      margin-block: 32px;
+    }
+  }
+}
+
+.siteContent {
+  @layer layout {
+    margin-block-start: 0;
+  }
+}
+
+.breadcrumbs {
+  @layer layout {
+    margin-block-end: 32px;
+  }
+}

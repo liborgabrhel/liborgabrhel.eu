@@ -1,0 +1,9 @@
+.paragraph {
+  @layer component {
+    margin: 0;
+    font-family: inherit;
+    font-size: var(--font-size-base-text);
+    line-height: var(--line-height-normal);
+    color: var(--slate-700);
+  }
+}

@@ -10,8 +10,8 @@ export const PolaroidLinkHeading = ({
   ...rest
 }: Props) => {
   return (
-    <h2 className={clsx(styles.heading, className)} {...rest}>
+    <h3 className={clsx(styles.heading, className)} {...rest}>
       {children}
-    </h2>
+    </h3>
   )
 }
