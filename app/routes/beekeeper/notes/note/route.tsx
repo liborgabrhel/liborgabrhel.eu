@@ -1,11 +1,13 @@
 // noinspection JSUnusedGlobalSymbols
 
+import { useState } from 'react'
 import { href } from 'react-router'
+import { AnimatedBounce } from '~/components/animated-bounce'
 import { ErrorSection } from '~/components/error-section'
 import { ErrorSectionHeading } from '~/components/error-section-heading'
-import { ErrorSectionLinkButton } from '~/components/error-section-link-button'
 import { ErrorSectionStackTrace } from '~/components/error-section-stack-trace'
 import { ErrorSectionSubheading } from '~/components/error-section-subheading'
+import { LinkButton } from '~/components/link-button'
 import { useErrorBoundaryError } from '~/hooks/use-error-boundary-error'
 import type { Route } from './+types/route'
 
@@ -26,15 +28,32 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   const { message, details, stack } = useErrorBoundaryError(error)
+  const [isBackButtonHovered, setIsBackButtonHovered] = useState(false)
+
+  const handleBackButtonHover = (isHovered: boolean) => () => {
+    setIsBackButtonHovered(isHovered)
+  }
 
   return (
     <ErrorSection>
       <ErrorSectionHeading>{message}</ErrorSectionHeading>
       <ErrorSectionSubheading>{details}</ErrorSectionSubheading>
-      <ErrorSectionLinkButton to={href('/beekeeper/notes')}>
-        Fly back to safety
-      </ErrorSectionLinkButton>
       {stack && <ErrorSectionStackTrace>{stack}</ErrorSectionStackTrace>}
+      <LinkButton
+        onMouseEnter={handleBackButtonHover(true)}
+        onMouseLeave={handleBackButtonHover(false)}
+        to={href('/beekeeper/notes')}
+      >
+        <AnimatedBounce
+          axis={'x'}
+          from={0}
+          isAnimating={isBackButtonHovered}
+          to={2}
+        >
+          ←
+        </AnimatedBounce>
+        Fly back to safety
+      </LinkButton>
     </ErrorSection>
   )
 }

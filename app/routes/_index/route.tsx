@@ -2,14 +2,18 @@
 
 import { useState } from 'react'
 import { href } from 'react-router'
+import { AnimatedBounce } from '~/components/animated-bounce'
 import { BeekeeperOverlay } from '~/components/beekeeper-overlay'
 import { DeveloperOverlay } from '~/components/developer-overlay'
 import { ErrorSection } from '~/components/error-section'
 import { ErrorSectionHeading } from '~/components/error-section-heading'
 import { ErrorSectionStackTrace } from '~/components/error-section-stack-trace'
 import { ErrorSectionSubheading } from '~/components/error-section-subheading'
+import { LinkButton } from '~/components/link-button'
+import { PageHeading } from '~/components/page-heading/_component'
 import { PageSection } from '~/components/page-section'
 import { PageSeo } from '~/components/page-seo'
+import { Paragraph } from '~/components/paragraph'
 import { PolaroidLinkDescription } from '~/components/polariod-link-description'
 import { PolaroidLinkGroup } from '~/components/polariod-link-group'
 import { PolaroidLinkHeading } from '~/components/polariod-link-heading'
@@ -30,6 +34,7 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
 
   const [isDeveloperLinkHovered, setIsDeveloperLinkHovered] = useState(false)
   const [isBeekeeperLinkHovered, setIsBeekeeperLinkHovered] = useState(false)
+  const [isContactLinkHovered, setIsContactLinkHovered] = useState(false)
 
   const handleDeveloperLinkHover = (isHovered: boolean) => () => {
     setIsDeveloperLinkHovered(isHovered)
@@ -37,6 +42,10 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
 
   const handleBeekeeperLinkHover = (isHovered: boolean) => () => {
     setIsBeekeeperLinkHovered(isHovered)
+  }
+
+  const handleContactLinkHover = (isHovered: boolean) => () => {
+    setIsContactLinkHovered(isHovered)
   }
 
   return (
@@ -52,6 +61,7 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
       />
 
       <PageSection>
+        <PageHeading>Pick a direction...</PageHeading>
         <PolaroidLinkGroup>
           <PolaroidLink
             imageUrl={developerImage}
@@ -107,6 +117,29 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
             </PolaroidLinkList>
           </PolaroidLink>
         </PolaroidLinkGroup>
+      </PageSection>
+
+      <PageSection>
+        <PageHeading>Not sure which way to go?</PageHeading>
+        <Paragraph>
+          Whether you’re curious about my code, my bees, or both — I’d love to
+          hear from you.
+        </Paragraph>
+        <LinkButton
+          onMouseEnter={handleContactLinkHover(true)}
+          onMouseLeave={handleContactLinkHover(false)}
+          to={href('/contact')}
+        >
+          Contact me
+          <AnimatedBounce
+            axis={'x'}
+            from={0}
+            isAnimating={isContactLinkHovered}
+            to={-2}
+          >
+            →
+          </AnimatedBounce>
+        </LinkButton>
       </PageSection>
     </>
   )

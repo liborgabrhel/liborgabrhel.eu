@@ -1,14 +1,17 @@
 @layer layout {
-  :root {
-    --error-section-heading-color: var(--amber-800);
-    --error-section-link-button-background-color: var(--amber-700);
-    --error-section-stack-trace-background-color: var(--amber-900);
-    --error-section-stack-trace-color: var(--amber-50);
-  }
-
   body {
     &:global(.beekeeper) {
-      background: var(--bg-beekeeper);
+      --body-background: var(--bg-beekeeper);
+
+      --call-to-action-section-border-color: var(--amber-300);
+      --call-to-action-section-background-color: var(--amber-50);
+
+      --link-button-background-color: var(--amber-600);
+      --link-button-label-color: var(--amber-50);
+
+      --error-section-heading-color: var(--amber-800);
+      --error-section-stack-trace-background-color: var(--amber-900);
+      --error-section-stack-trace-color: var(--amber-50);
     }
   }
 }
@@ -26,11 +29,5 @@
 .siteContent {
   @layer layout {
     margin-block-start: 0;
-  }
-}
-
-.breadcrumbs {
-  @layer layout {
-    margin-block-end: 32px;
   }
 }

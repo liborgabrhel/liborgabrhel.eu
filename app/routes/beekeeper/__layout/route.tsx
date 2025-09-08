@@ -16,7 +16,7 @@ export default function LayoutRouteComponent() {
     <>
       <SiteHeader className={styles.siteHeader} />
       <SiteContent className={styles.siteContent}>
-        <Breadcrumbs className={styles.breadcrumbs} />
+        <Breadcrumbs />
         <Outlet />
       </SiteContent>
       <SiteFooter />

@@ -9,11 +9,9 @@ import {
 } from '@react-router/dev/routes'
 
 export default [
-  // Home & Contact
   layout('routes/__layout/route.tsx', [
+    // Home
     index('routes/_index/route.tsx'),
-
-    route('contact', 'routes/contact/route.tsx'),
 
     // Not Found - 404
     route('*', 'routes/not-found/route.tsx'),
@@ -62,6 +60,13 @@ export default [
 
       // Not Found - 404
       route('*', 'routes/beekeeper/not-found/route.tsx'),
+    ]),
+  ]),
+
+  // Contact
+  ...prefix('contact', [
+    layout('routes/contact/__layout/route.tsx', [
+      index('routes/contact/_index/route.tsx'),
     ]),
   ]),
 
