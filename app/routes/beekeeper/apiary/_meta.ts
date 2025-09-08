@@ -6,6 +6,10 @@ import {
 import type { Route } from './+types/route'
 
 export const meta: Route.MetaFunction = ({ matches, loaderData }) => {
+  if (loaderData === undefined) {
+    return []
+  }
+
   const breadcrumbs = getBreadcrumbs(matches as UIMatch[])
 
   const breadcrumbStructuredData = createBreadcrumbStructuredData(
