@@ -9,8 +9,8 @@ const schema = z.object({
     'development',
     'staging',
   ] as const),
-  [ENV_KEYS.DATABASE_PATH]: z.string(),
-  [ENV_KEYS.DATABASE_URL]: z.string(),
+  [ENV_KEYS.DATABASE_PATH]: z.string().nonempty(),
+  [ENV_KEYS.DATABASE_URL]: z.string().nonempty(),
 })
 
 declare global {
