@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@conform-to/react':
-        specifier: 1.8.2
-        version: 1.8.2(react@19.1.1)
+        specifier: 1.9.0
+        version: 1.9.0(react@19.1.1)
       '@conform-to/zod':
-        specifier: 1.8.2
-        version: 1.8.2(zod@3.23.8)
+        specifier: 1.9.0
+        version: 1.9.0(zod@4.1.5)
       '@epic-web/remember':
         specifier: 1.1.0
         version: 1.1.0
@@ -63,8 +63,8 @@ importers:
         specifier: 7.8.2
         version: 7.8.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       zod:
-        specifier: 3.23.8
-        version: 3.23.8
+        specifier: 4.1.5
+        version: 4.1.5
     devDependencies:
       '@biomejs/biome':
         specifier: 2.2.2
@@ -312,16 +312,16 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@conform-to/dom@1.8.2':
-    resolution: {integrity: sha512-5eDqI9366+23Fl/E5zxebuy2FCebJKpSrdE/c6PZQ5Ul59BYQ17pBmkLkvxAKjPXW+Qq77BJyjGjuklwmqN08A==}
+  '@conform-to/dom@1.9.0':
+    resolution: {integrity: sha512-aukL19Y/isqa8vXkYBpOtJbUAttaxpHXTLm/2NMj8TMNRmmVdPkJK8l6ClJM4p8cAPUHi3WrRMRoHSBAR56v8w==}
 
-  '@conform-to/react@1.8.2':
-    resolution: {integrity: sha512-AJuHH4YY64o+VP3qsXd7bqlqCJYefTcEVj6mOiQr/m9iQV785gPtGE31jdmipvQ3ZHQE0Lp4e4th7kN/xo46qg==}
+  '@conform-to/react@1.9.0':
+    resolution: {integrity: sha512-73VdST7vcdblk5SrFeR3xH+pPUuO91Gy9HuC5k0SbeaEDYUiEkdAOfWvDWrcvUBsNsr1EpBmJWQp+MU0pNl+xQ==}
     peerDependencies:
       react: '>=18'
 
-  '@conform-to/zod@1.8.2':
-    resolution: {integrity: sha512-uYipAoNByusRji7j84o40r9IvYmsV84utfCfvqr2b746/8JnBuoO6C90yltan5D9OVAJMIKejXW4T1XfOsaMWg==}
+  '@conform-to/zod@1.9.0':
+    resolution: {integrity: sha512-OWrSXO7bzEO9Gn4iQSWFHI1kqOdIp/tE1VTNsaWe++B9pGaQI3vh1c3uwmEsFQxAMPIpecJycxJpu4zKyh0iDA==}
     peerDependencies:
       zod: ^3.21.0 || ^4.0.0
 
@@ -2679,8 +2679,8 @@ packages:
   zimmerframe@1.1.2:
     resolution: {integrity: sha512-rAbqEGa8ovJy4pyBxZM70hg4pE6gDgaQ0Sl9M3enG3I0d6H4XSAM3GeNGLKnsBpuijUow064sf7ww1nutC5/3w==}
 
-  zod@3.23.8:
-    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+  zod@4.1.5:
+    resolution: {integrity: sha512-rcUUZqlLJgBC33IT3PNMgsCq6TzLQEG/Ei/KTCU0PedSWRMAXoOUN+4t/0H+Q8bdnLPdqUYnvboJT0bn/229qg==}
 
 snapshots:
 
@@ -2920,17 +2920,17 @@ snapshots:
   '@biomejs/cli-win32-x64@2.2.2':
     optional: true
 
-  '@conform-to/dom@1.8.2': {}
+  '@conform-to/dom@1.9.0': {}
 
-  '@conform-to/react@1.8.2(react@19.1.1)':
+  '@conform-to/react@1.9.0(react@19.1.1)':
     dependencies:
-      '@conform-to/dom': 1.8.2
+      '@conform-to/dom': 1.9.0
       react: 19.1.1
 
-  '@conform-to/zod@1.8.2(zod@3.23.8)':
+  '@conform-to/zod@1.9.0(zod@4.1.5)':
     dependencies:
-      '@conform-to/dom': 1.8.2
-      zod: 3.23.8
+      '@conform-to/dom': 1.9.0
+      zod: 4.1.5
 
   '@epic-web/remember@1.1.0': {}
 
@@ -5315,4 +5315,4 @@ snapshots:
 
   zimmerframe@1.1.2: {}
 
-  zod@3.23.8: {}
+  zod@4.1.5: {}
