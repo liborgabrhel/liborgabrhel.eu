@@ -28,6 +28,7 @@ import beekeeperImage from './assets/beekeeper.png'
 import developerImage from './assets/developer.png'
 
 export { loader } from './_loader'
+export { meta } from './_meta'
 
 export default function RouteComponent({ loaderData }: Route.ComponentProps) {
   const { baseUrl } = loaderData
