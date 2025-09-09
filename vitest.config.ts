@@ -14,7 +14,10 @@ export default defineConfig({
       all: true,
       include: ['app/**/*.{ts,tsx}'],
     },
+    environment: 'jsdom',
+    globals: true,
     include: ['./app/**/*.test.{ts,tsx}'],
     restoreMocks: true,
+    setupFiles: ['./test/jest-dom.ts', './test/vitest-cleanup-after-each.ts'],
   },
 })
