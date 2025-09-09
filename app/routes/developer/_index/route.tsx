@@ -11,7 +11,7 @@ import { ErrorSectionSubheading } from '~/components/error-section-subheading'
 import { LinkButton } from '~/components/link-button'
 import { PageSeo } from '~/components/page-seo'
 import { Paragraph } from '~/components/paragraph'
-import { searchParams } from '~/constants/search-params'
+import { SEARCH_PARAMS } from '~/constants/search-params'
 import { useErrorBoundaryError } from '~/hooks/use-error-boundary-error'
 import { seo } from './_seo'
 import type { Route } from './+types/route'
@@ -22,7 +22,7 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
   const { baseUrl } = loaderData
 
   const conatctUrlSearchParams = new URLSearchParams({
-    [searchParams.via.key]: searchParams.via.values.developer,
+    [SEARCH_PARAMS.via.key]: SEARCH_PARAMS.via.values.developer,
   })
   const contactUrl = `${href('/contact')}?${conatctUrlSearchParams.toString()}`
 

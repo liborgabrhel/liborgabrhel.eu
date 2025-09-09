@@ -8,8 +8,6 @@ import { SiteHeader } from '~/components/site-header'
 import styles from './_styles.module.css'
 
 export { handle } from './_handle'
-export { loader } from './_loader'
-export { meta } from './_meta'
 
 export default function LayoutRouteComponent() {
   return (

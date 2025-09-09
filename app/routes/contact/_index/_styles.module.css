@@ -1,0 +1,14 @@
+.paragraph {
+  @layer route {
+    text-align: center;
+  }
+}
+
+.note {
+  @layer route {
+    font-size: var(--font-size-note-text);
+    font-weight: 400;
+    line-height: var(--line-height-compact);
+    color: var(--text-secondary);
+  }
+}

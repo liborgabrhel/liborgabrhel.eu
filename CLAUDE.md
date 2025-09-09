@@ -80,6 +80,12 @@ Components are organized in `app/components/` with this structure:
 - Use `type` (not `interface`) for Props definitions and always name it `Props`
 - Export components as named exports (not default exports) from `_component.tsx`
 - Use barrel exports in `index.ts` to re-export the component
+- **Class Composition**: Use `clsx()` for multiple class names and conditional styling
+  ```tsx
+  import { clsx } from 'clsx'
+  
+  <div className={clsx(styles.base, isActive && styles.active, styles.modifier)} />
+  ```
 
 #### Database Schema
 Prisma schema defines a `Note` model with:
@@ -114,6 +120,25 @@ Lefthook handles pre-commit hooks:
 - Inter font from rsms.me
 - CSS Modules for component-specific styles
 - Tailwind-like utility classes in global styles
+
+**Design System Conventions:**
+- **4px Spacing System**: Use multiples of 4px for all spacing (padding, margin, border-radius)
+  - Examples: `4px`, `8px`, `12px`, `16px`, `20px`, `24px`, etc.
+  - Avoid arbitrary values like `0.5rem` or `10px`
+- **CSS Variables**: Always use CSS custom properties from `app/styles/`
+  - Colors: `var(--text-primary)`, `var(--slate-200)`, `var(--blue-500)`
+  - Typography: `var(--font-size-base-text)`, `var(--font-size-small-text)`
+  - Spacing: Follow 4px increments in pixel values
+- **CSS Layers**: Use `@layer component` inside class selectors for proper cascade control
+  ```css
+  .myClass {
+    @layer component {
+      padding: 12px;
+      border-radius: 8px;
+      color: var(--text-primary);
+    }
+  }
+  ```
 
 ### Key Patterns
 
