@@ -16,7 +16,7 @@ export { loader } from './_loader'
 export { meta } from './_meta'
 
 export default function RouteComponent() {
-  return <>Route</>
+  return 'Route'
 }
 
 export function ErrorBoundary({ error }: { error: Route.ErrorBoundaryProps }) {

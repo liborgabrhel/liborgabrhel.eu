@@ -110,6 +110,13 @@ Lefthook handles pre-commit hooks:
 
 **IMPORTANT**: Always run `pnpm exec biome format --write` and `pnpm exec biome check --write` after modifying file content to ensure consistent formatting and import sorting.
 
+#### Browser Cache Issues
+**Safari Development Troubleshooting:**
+- If JavaScript/animations stop working after package updates, clear Safari cache: **Developer > Empty Caches**
+- Safari caches compiled modules more aggressively than other browsers
+- This can cause "Outdated Optimize Dep" errors and module import failures
+- Always try clearing Safari cache before troubleshooting code issues
+
 #### Environment Configuration
 - Uses environment variables for database paths
 - Client-side environment variables served via `/resources/env.js`

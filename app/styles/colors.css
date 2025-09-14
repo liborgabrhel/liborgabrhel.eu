@@ -52,8 +52,18 @@
 
   /* Background Colors */
   --bg-primary: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-  --bg-developer: linear-gradient(135deg, #f0fdfa 0%, #f8fafc 50%, #f1f5f9 100%);
-  --bg-beekeeper: linear-gradient(135deg, #fffbeb 0%, #f8fafc 60%, #f1f5f9 100%);
+  --bg-developer: linear-gradient(
+    135deg,
+    #f0fdfa 0%,
+    #f8fafc 50%,
+    #f1f5f9 100%
+  );
+  --bg-beekeeper: linear-gradient(
+    135deg,
+    #fffbeb 0%,
+    #f8fafc 60%,
+    #f1f5f9 100%
+  );
   --bg-card: #ffffff;
   --bg-muted: #f8fafc;
 

@@ -6,5 +6,6 @@
     font-size: inherit;
     color: inherit;
     line-height: inherit;
+    will-change: transform;
   }
 }
