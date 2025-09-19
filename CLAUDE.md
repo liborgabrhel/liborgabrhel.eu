@@ -86,6 +86,10 @@ Components are organized in `app/components/` with this structure:
   
   <div className={clsx(styles.base, isActive && styles.active, styles.modifier)} />
   ```
+- **Compound Components**: Follow the compound component pattern (https://www.patterns.dev/react/compound-pattern/) for complex components that need subcomponents
+  - Each subcomponent should have its own separate folder for better readability and maintainability
+  - Avoid Object-like structures (e.g., `Card.Header`, `Card.Body`) - use individual component folders instead
+  - Example: Instead of `Card.Header`, create separate `card-header/` folder with its own `_component.tsx` and styles
 
 #### Database Schema
 Prisma schema defines a `Note` model with:
@@ -176,3 +180,22 @@ Each route can have multiple files:
 ### React Router v7
 - **Official Documentation**: https://reactrouter.com/home
 - Framework-specific solutions for routing, data loading, SSR, and React Router patterns
+
+## Self-Improvement Protocol
+
+### Pattern Recognition & Documentation
+**IMPORTANT**: When working with the codebase, actively identify new patterns, requirements, rules, or conventions that aren't documented in CLAUDE.md:
+- **Recognize**: Notice recurring patterns, naming conventions, architectural decisions, or workflow requirements
+- **Ask**: When a new pattern is identified, ask the user: "I've noticed a new pattern/rule: [description]. Should I add this as a directive to CLAUDE.md?"
+- **Document**: Only add new directives after explicit user confirmation
+- **Update**: When existing patterns evolve or change, ask: "I've noticed pattern [X] has changed to [Y]. Should I update the existing directive in CLAUDE.md?"
+- **Categories** to watch for:
+  - Component patterns and naming conventions
+  - File organization and structure patterns
+  - Code style preferences beyond what's documented
+  - Workflow requirements and development practices
+  - Testing patterns and requirements
+  - Database and API patterns
+  - Performance or accessibility requirements
+
+This ensures CLAUDE.md evolves with the project and captures institutional knowledge for future development work, keeping directives current as the codebase matures.
