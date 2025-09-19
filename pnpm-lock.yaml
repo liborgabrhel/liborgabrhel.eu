@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@conform-to/react':
-        specifier: 1.9.1
-        version: 1.9.1(react@19.1.1)
+        specifier: 1.10.1
+        version: 1.10.1(react@19.1.1)
       '@conform-to/zod':
-        specifier: 1.9.1
-        version: 1.9.1(zod@4.1.8)
+        specifier: 1.10.1
+        version: 1.10.1(zod@4.1.8)
       '@epic-web/remember':
         specifier: 1.1.0
         version: 1.1.0
@@ -339,16 +339,16 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@conform-to/dom@1.9.1':
-    resolution: {integrity: sha512-TSvGakMrNZ9pp9Lzt2MGsPtiU1oeGZG0rRW65Rej43w2zqeP2pNibXvLdTCd1BHUweTlPLDHSPP79KT02pFtUA==}
+  '@conform-to/dom@1.10.1':
+    resolution: {integrity: sha512-5qYBz2H8mTnEBsMo6juOOuPSytjWy3MsuCPP13MWqVS9GTfSI91FLrSpNnhFquQfhtNESrsMRZK9s2Zg8v1QqA==}
 
-  '@conform-to/react@1.9.1':
-    resolution: {integrity: sha512-D51h80DhImr+7ReiU44+Ob3/njBu3iVlvIJNZHbTkuratLfpGdYzlXc53n0/Y/KDd5kL+GfqlGXmKaDDxBA33Q==}
+  '@conform-to/react@1.10.1':
+    resolution: {integrity: sha512-vfspLc/9o9q0mvM3WmcU/0ZdGx33SiH4jKEqOfSYitJ4E64FP1uCDsZJ/4O5pd7dzpe/mLyiI+ATbGkFicvAFQ==}
     peerDependencies:
       react: '>=18'
 
-  '@conform-to/zod@1.9.1':
-    resolution: {integrity: sha512-UHrylJlEMLwZFZ0fXl+5jeizkZDmW9YIVo7pXmRjERhgpVLb34wWaSUOBv2Q83nmgpWIMKCHIP3Bc79lIno77A==}
+  '@conform-to/zod@1.10.1':
+    resolution: {integrity: sha512-6wZ+zbFMlY4MHD1D/a18rojUkKjqdaKKE7v3JOFSaEfRMJ0S+Bgj7zisqvlihxe02kZJuV7b3CKNfTN6rBlaKA==}
     peerDependencies:
       zod: ^3.21.0 || ^4.0.0
 
@@ -3212,16 +3212,16 @@ snapshots:
   '@biomejs/cli-win32-x64@2.2.4':
     optional: true
 
-  '@conform-to/dom@1.9.1': {}
+  '@conform-to/dom@1.10.1': {}
 
-  '@conform-to/react@1.9.1(react@19.1.1)':
+  '@conform-to/react@1.10.1(react@19.1.1)':
     dependencies:
-      '@conform-to/dom': 1.9.1
+      '@conform-to/dom': 1.10.1
       react: 19.1.1
 
-  '@conform-to/zod@1.9.1(zod@4.1.8)':
+  '@conform-to/zod@1.10.1(zod@4.1.8)':
     dependencies:
-      '@conform-to/dom': 1.9.1
+      '@conform-to/dom': 1.10.1
       zod: 4.1.8
 
   '@csstools/color-helpers@5.1.0': {}
