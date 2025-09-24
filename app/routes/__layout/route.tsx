@@ -13,7 +13,7 @@ export default function Layout() {
       <SiteContent>
         <Outlet />
       </SiteContent>
-      <SiteFooter />
+      <SiteFooter>Two passions, one home. South Bohemia, 2025.</SiteFooter>
     </>
   )
 }

@@ -17,7 +17,7 @@ export default function LayoutRouteComponent() {
         <Breadcrumbs className={styles.breadcrumbs} />
         <Outlet />
       </SiteContent>
-      <SiteFooter />
+      <SiteFooter>Two passions, one home. South Bohemia, 2025.</SiteFooter>
     </>
   )
 }

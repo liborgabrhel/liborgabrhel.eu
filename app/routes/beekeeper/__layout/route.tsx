@@ -19,7 +19,7 @@ export default function LayoutRouteComponent() {
         <Breadcrumbs />
         <Outlet />
       </SiteContent>
-      <SiteFooter />
+      <SiteFooter>Guided by the bees. South Bohemia, 2025.</SiteFooter>
     </>
   )
 }
