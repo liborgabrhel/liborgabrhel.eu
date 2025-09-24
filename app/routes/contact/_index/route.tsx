@@ -11,6 +11,8 @@ import { PageSection } from '~/components/page-section'
 import { PageSectionHeading } from '~/components/page-section-heading'
 import { PageSeo } from '~/components/page-seo'
 import { Paragraph } from '~/components/paragraph'
+import { Quote } from '~/components/quote'
+import { QuoteSection } from '~/components/quote-section'
 import { SEARCH_PARAMS } from '~/constants/search-params'
 import { useErrorBoundaryError } from '~/hooks/use-error-boundary-error'
 import {
@@ -59,6 +61,10 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
           adjust or remove them before sending.
         </Paragraph>
       </PageSection>
+
+      <QuoteSection>
+        <Quote author={'Mr. Miyagi'}>One hand reach… other hand meet.</Quote>
+      </QuoteSection>
     </>
   )
 }
