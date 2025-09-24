@@ -175,7 +175,7 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
         <Paragraph>
           My colonies are built around the{' '}
           <strong>Carniolan honey bee (Apis mellifera carnica)</strong>, known
-          locally as Kraňka.This lineage is valued for its adaptability, calm
+          locally as Kraňka. This lineage is valued for its adaptability, calm
           nature, and strong productivity.
         </Paragraph>
         <SplitView>
