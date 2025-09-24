@@ -9,7 +9,7 @@ export const PageHeroSectionHeading = ({
   className,
   ...rest
 }: Props) => (
-  <h1 className={clsx(styles.title, className)} {...rest}>
+  <h1 className={clsx(styles.heading, className)} {...rest}>
     {children}
   </h1>
 )

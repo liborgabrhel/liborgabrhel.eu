@@ -1,4 +1,4 @@
-.title {
+.heading {
   @layer component {
     font-size: var(--font-size-heading-1);
     font-weight: 700;

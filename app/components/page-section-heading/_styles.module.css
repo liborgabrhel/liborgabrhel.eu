@@ -6,5 +6,6 @@
     font-weight: 700;
     line-height: var(--line-height-tight);
     color: var(--text-primary);
+    text-align: center;
   }
 }

@@ -40,8 +40,8 @@ export function useErrorBoundaryError(error: unknown): ErrorInfo {
     message = `${error.status}`
     details = error.statusText || details
   } else if (import.meta.env.DEV && error && error instanceof Error) {
-    message = error.message
-    details = error.name
+    message = error.name
+    details = error.message
     stack = error.stack
   }
 
