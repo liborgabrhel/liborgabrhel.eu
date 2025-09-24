@@ -1,17 +1,13 @@
 import { clsx } from 'clsx'
-import type { ReactNode } from 'react'
-import { PageSection } from '~/components/page-section'
+import type { ComponentProps } from 'react'
 import styles from './_styles.module.css'
 
-type Props = {
-  className?: string
-  children: ReactNode
-}
+type Props = ComponentProps<'figure'>
 
-export const QuoteSection = ({ children, className }: Props) => {
+export const QuoteSection = ({ children, className, ...rest }: Props) => {
   return (
-    <PageSection className={clsx(styles.section, className)}>
+    <figure className={clsx(styles.section, className)} {...rest}>
       {children}
-    </PageSection>
+    </figure>
   )
 }
