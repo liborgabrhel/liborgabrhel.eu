@@ -12,7 +12,7 @@ export const Quote = ({ className, children, author, ...rest }: Props) => {
   return (
     <figure className={clsx(styles.quote, className)} {...rest}>
       <blockquote className={styles.blockquote}>
-        <p className={styles.text}>"{children}"</p>
+        <p className={styles.text}>“{children}”</p>
       </blockquote>
       <figcaption className={styles.attribution}>
         <p>— {author}</p>
