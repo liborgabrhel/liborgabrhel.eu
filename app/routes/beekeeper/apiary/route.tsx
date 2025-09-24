@@ -1,9 +1,14 @@
 // noinspection JSUnusedGlobalSymbols
 
+import { useState } from 'react'
+import { href } from 'react-router'
+import { AnimatedBounce } from '~/components/animated-bounce'
+import { CallToActionSection } from '~/components/call-to-action-section'
 import { ErrorSection } from '~/components/error-section'
 import { ErrorSectionHeading } from '~/components/error-section-heading'
 import { ErrorSectionStackTrace } from '~/components/error-section-stack-trace'
 import { ErrorSectionSubheading } from '~/components/error-section-subheading'
+import { LinkButton } from '~/components/link-button'
 import { List } from '~/components/list'
 import { ListItem } from '~/components/list-item'
 import { PageHeroSection } from '~/components/page-hero-section'
@@ -21,6 +26,7 @@ import { PolaroidPhoto } from '~/components/polaroid-photo'
 import { Quote } from '~/components/quote'
 import { QuoteSection } from '~/components/quote-section'
 import { SplitView } from '~/components/split-view'
+import { SEARCH_PARAMS } from '~/constants/search-params'
 import { useErrorBoundaryError } from '~/hooks/use-error-boundary-error'
 import { seo } from './_seo'
 import styles from './_styles.module.css'
@@ -32,6 +38,17 @@ export { meta } from './_meta'
 
 export default function RouteComponent({ loaderData }: Route.ComponentProps) {
   const { baseUrl } = loaderData
+
+  const [isContactLinkHovered, setIsContactLinkHovered] = useState(false)
+
+  const handleContactLinkHover = (isHovered: boolean) => () => {
+    setIsContactLinkHovered(isHovered)
+  }
+
+  const conatctUrlSearchParams = new URLSearchParams({
+    [SEARCH_PARAMS.via.key]: SEARCH_PARAMS.via.values.beekeeper,
+  })
+  const contactUrl = `${href('/contact')}?${conatctUrlSearchParams.toString()}`
 
   return (
     <>
@@ -188,6 +205,27 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
           when given enough room to thrive.
         </Paragraph>
       </PageSection>
+
+      <CallToActionSection>
+        <Paragraph>
+          Want to talk bees, hives, or the tools that make it work?
+        </Paragraph>
+        <LinkButton
+          onMouseEnter={handleContactLinkHover(true)}
+          onMouseLeave={handleContactLinkHover(false)}
+          to={contactUrl}
+        >
+          Contact me
+          <AnimatedBounce
+            axis={'x'}
+            from={0}
+            isAnimating={isContactLinkHovered}
+            to={-2}
+          >
+            →
+          </AnimatedBounce>
+        </LinkButton>
+      </CallToActionSection>
     </>
   )
 }

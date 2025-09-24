@@ -118,7 +118,7 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
         <PageSectionHeading>My Apiary</PageSectionHeading>
         <Paragraph className={styles.paragraph}>
           Every visit to the apiary starts the same — a smoker, a hive tool, and
-          the sound of bees working between the frames. What I find inside is
+          the sound of bees buzzing between the frames. What I find inside is
           never the same, and that’s what makes this little place worth
           exploring.
         </Paragraph>
