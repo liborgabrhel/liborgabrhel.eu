@@ -4,18 +4,11 @@
   }
 }
 
-.quote {
-  @layer component {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-}
-
 .blockquote {
   @layer component {
     margin: 0;
     padding: 0;
+    text-align: center;
   }
 }
 
@@ -33,21 +26,5 @@
       "liga" 1,
       "calt" 1,
       "ss08" 1;
-  }
-}
-
-.attribution {
-  @layer component {
-    margin-top: 12px;
-
-    p {
-      margin: 0;
-      font-family: inherit;
-      font-size: var(--font-size-small-text);
-      line-height: var(--line-height-tight);
-      color: var(--slate-600);
-      font-weight: 500;
-      font-style: normal;
-    }
   }
 }
