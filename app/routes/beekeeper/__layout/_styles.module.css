@@ -13,6 +13,8 @@
 
       --quote-text-color: var(--amber-600);
 
+      --empty-state-heading-color: var(--amber-800);
+
       --link-button-background-color: var(--amber-600);
       --link-button-label-color: var(--amber-50);
 
