@@ -1,6 +1,7 @@
 import { animated, useSpring } from '@react-spring/web'
 import { clsx } from 'clsx'
 import type { ComponentProps } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './_styles.module.css'
 
 type Props = {
@@ -20,15 +21,32 @@ export const AnimatedBounce = ({
   children,
   ...rest
 }: Props) => {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setPrefersReducedMotion(mediaQuery.matches)
+
+    const handleChange = (event: MediaQueryListEvent) => {
+      setPrefersReducedMotion(event.matches)
+    }
+
+    mediaQuery.addEventListener('change', handleChange)
+
+    return () => mediaQuery.removeEventListener('change', handleChange)
+  }, [])
+
+  const shouldAnimate = isAnimating && !prefersReducedMotion
+
   const bounceSpring = useSpring({
     config: {
       friction: 26,
       tension: 220,
     },
     from: { [axis]: from },
-    loop: isAnimating,
+    loop: shouldAnimate,
     to: async (next) => {
-      if (isAnimating) {
+      if (shouldAnimate) {
         await next({ [axis]: to })
         await next({ [axis]: from })
       } else {
