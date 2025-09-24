@@ -3,8 +3,15 @@
     &:global(.beekeeper) {
       --body-background: var(--bg-beekeeper);
 
+      --hero-section-subheading-color: var(--amber-700);
+
       --call-to-action-section-border-color: var(--amber-300);
       --call-to-action-section-background-color: var(--amber-50);
+
+      --link-color: var(--amber-600);
+      --focus-outline-color: var(--amber-400);
+
+      --quote-text-color: var(--amber-600);
 
       --link-button-background-color: var(--amber-600);
       --link-button-label-color: var(--amber-50);

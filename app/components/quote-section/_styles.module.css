@@ -1,0 +1,6 @@
+.section {
+  @layer variant {
+    row-gap: 24px;
+    margin-block: 48px;
+  }
+}

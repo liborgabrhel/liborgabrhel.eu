@@ -3,8 +3,15 @@
     &:global(.developer) {
       --body-background: var(--bg-developer);
 
+      --hero-section-subheading-color: var(--teal-700);
+
       --call-to-action-section-border-color: var(--teal-300);
       --call-to-action-section-background-color: var(--teal-50);
+
+      --link-color: var(--teal-600);
+      --focus-outline-color: var(--teal-400);
+
+      --quote-text-color: var(--teal-600);
 
       --link-button-background-color: var(--teal-600);
       --link-button-label-color: var(--teal-50);

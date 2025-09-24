@@ -1,0 +1,17 @@
+.hivesPolaroid {
+  @layer route {
+    transform: rotate(1deg);
+  }
+}
+
+.toolsPolaroid {
+  @layer route {
+    transform: rotate(-1deg);
+  }
+}
+
+.beesPolaroid {
+  @layer route {
+    transform: rotate(1deg);
+  }
+}

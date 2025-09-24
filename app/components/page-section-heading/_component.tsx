@@ -6,6 +6,6 @@ type Props = {
   children: React.ReactNode
 }
 
-export const PageHeading = ({ className, children }: Props) => {
+export const PageSectionHeading = ({ className, children }: Props) => {
   return <h2 className={clsx(styles.heading, className)}>{children}</h2>
 }
