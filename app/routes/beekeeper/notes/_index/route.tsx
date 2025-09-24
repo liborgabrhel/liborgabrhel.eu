@@ -5,6 +5,14 @@ import { ErrorSection } from '~/components/error-section'
 import { ErrorSectionHeading } from '~/components/error-section-heading'
 import { ErrorSectionStackTrace } from '~/components/error-section-stack-trace'
 import { ErrorSectionSubheading } from '~/components/error-section-subheading'
+import { NoteCardExcerpt } from '~/components/note-card-excerpt'
+import { NoteCardLink } from '~/components/note-card-link'
+import { NoteCardLinkGroup } from '~/components/note-card-link-group'
+import { NoteCardTitle } from '~/components/note-card-title'
+import { PageHeroSection } from '~/components/page-hero-section'
+import { PageHeroSectionHeading } from '~/components/page-hero-section-heading'
+import { PageSection } from '~/components/page-section'
+import { PageSectionHeading } from '~/components/page-section-heading'
 import { PageSeo } from '~/components/page-seo'
 import { useErrorBoundaryError } from '~/hooks/use-error-boundary-error'
 import { seo } from './_seo'
@@ -27,17 +35,28 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
         twitterImageUrl={''}
       />
 
-      <h2>Bee Notes</h2>
+      <PageHeroSection>
+        <PageHeroSectionHeading>Bee Notes</PageHeroSectionHeading>
+      </PageHeroSection>
 
-      <ul>
-        {notes.map((note) => (
-          <li key={note.slug}>
-            <Link to={href('/beekeeper/notes/:slug', { slug: note.slug })}>
-              {note.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <PageSection>
+        <PageSectionHeading>
+          A collection of notes and articles about beekeeping and related
+          topics.
+        </PageSectionHeading>
+
+        <NoteCardLinkGroup>
+          {notes.map((note) => (
+            <NoteCardLink
+              key={note.id}
+              to={href('/beekeeper/notes/:slug', { slug: note.slug })}
+            >
+              <NoteCardTitle>{note.title}</NoteCardTitle>
+              <NoteCardExcerpt>{note.excerpt}</NoteCardExcerpt>
+            </NoteCardLink>
+          ))}
+        </NoteCardLinkGroup>
+      </PageSection>
     </>
   )
 }

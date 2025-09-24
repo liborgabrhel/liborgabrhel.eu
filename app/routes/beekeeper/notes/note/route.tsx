@@ -8,6 +8,7 @@ import { ErrorSectionHeading } from '~/components/error-section-heading'
 import { ErrorSectionStackTrace } from '~/components/error-section-stack-trace'
 import { ErrorSectionSubheading } from '~/components/error-section-subheading'
 import { LinkButton } from '~/components/link-button'
+import { PageSeo } from '~/components/page-seo'
 import { useErrorBoundaryError } from '~/hooks/use-error-boundary-error'
 import type { Route } from './+types/route'
 
@@ -16,12 +17,22 @@ export { loader } from './_loader'
 export { meta } from './_meta'
 
 export default function RouteComponent({ loaderData }: Route.ComponentProps) {
-  const { note } = loaderData
+  const { baseUrl, note } = loaderData
 
   return (
     <>
+      <PageSeo
+        baseUrl={baseUrl}
+        metaDescription={note.seo.metaDescription}
+        metaRobots={note.seo.metaRobots}
+        ogImageUrl={undefined}
+        pagePath={href('/beekeeper/notes/:slug', { slug: note.slug })}
+        pageTitle={note.seo.pageTitle}
+        twitterImageUrl={undefined}
+      />
+
       <h1>{note.title}</h1>
-      <p>note body</p>
+      <p>{note.content}</p>
     </>
   )
 }
