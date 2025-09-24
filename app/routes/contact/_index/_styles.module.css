@@ -1,9 +1,3 @@
-.paragraph {
-  @layer route {
-    text-align: center;
-  }
-}
-
 .note {
   @layer route {
     font-size: var(--font-size-note-text);

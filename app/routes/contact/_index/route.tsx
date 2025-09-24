@@ -7,8 +7,8 @@ import { ErrorSection } from '~/components/error-section'
 import { ErrorSectionHeading } from '~/components/error-section-heading'
 import { ErrorSectionStackTrace } from '~/components/error-section-stack-trace'
 import { ErrorSectionSubheading } from '~/components/error-section-subheading'
-import { PageHeading } from '~/components/page-heading'
 import { PageSection } from '~/components/page-section'
+import { PageSectionHeading } from '~/components/page-section-heading'
 import { PageSeo } from '~/components/page-seo'
 import { Paragraph } from '~/components/paragraph'
 import { SEARCH_PARAMS } from '~/constants/search-params'
@@ -45,7 +45,7 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
       />
 
       <PageSection>
-        <PageHeading>Get in Touch</PageHeading>
+        <PageSectionHeading>Get in Touch</PageSectionHeading>
         <Paragraph className={styles.paragraph}>
           {INTRO_PARAGRAPH[via]}
         </Paragraph>

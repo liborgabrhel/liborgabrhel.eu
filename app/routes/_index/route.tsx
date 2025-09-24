@@ -10,8 +10,8 @@ import { ErrorSectionHeading } from '~/components/error-section-heading'
 import { ErrorSectionStackTrace } from '~/components/error-section-stack-trace'
 import { ErrorSectionSubheading } from '~/components/error-section-subheading'
 import { LinkButton } from '~/components/link-button'
-import { PageHeading } from '~/components/page-heading/_component'
 import { PageSection } from '~/components/page-section'
+import { PageSectionHeading } from '~/components/page-section-heading/_component'
 import { PageSeo } from '~/components/page-seo'
 import { Paragraph } from '~/components/paragraph'
 import { PolaroidLinkDescription } from '~/components/polariod-link-description'
@@ -19,7 +19,10 @@ import { PolaroidLinkGroup } from '~/components/polariod-link-group'
 import { PolaroidLinkHeading } from '~/components/polariod-link-heading'
 import { PolaroidLinkList } from '~/components/polariod-link-list'
 import { PolaroidLinkListItem } from '~/components/polariod-link-list-item'
+import { PolaroidFrame } from '~/components/polaroid-frame'
 import { PolaroidLink } from '~/components/polaroid-link'
+import { PolaroidOverlay } from '~/components/polaroid-overlay'
+import { PolaroidPhoto } from '~/components/polaroid-photo'
 import { useErrorBoundaryError } from '~/hooks/use-error-boundary-error'
 import { seo } from './_seo'
 import styles from './_styles.module.css'
@@ -62,15 +65,20 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
       />
 
       <PageSection>
-        <PageHeading>Pick a direction...</PageHeading>
+        <PageSectionHeading>Pick a direction...</PageSectionHeading>
         <PolaroidLinkGroup>
           <PolaroidLink
-            imageUrl={developerImage}
+            className={styles.developerLink}
             onMouseEnter={handleDeveloperLinkHover(true)}
             onMouseLeave={handleDeveloperLinkHover(false)}
-            overlay={<DeveloperOverlay isHovered={isDeveloperLinkHovered} />}
             to={href('/developer')}
           >
+            <PolaroidFrame className={styles.developerPolaroid}>
+              <PolaroidPhoto alt={'Developer at work'} src={developerImage} />
+              <PolaroidOverlay className={styles.polaroidOverlay}>
+                <DeveloperOverlay isHovered={isDeveloperLinkHovered} />
+              </PolaroidOverlay>
+            </PolaroidFrame>
             <PolaroidLinkHeading>Frontend Developer</PolaroidLinkHeading>
             <PolaroidLinkDescription>
               Modern web apps that are fast, accessible, and a joy to use.
@@ -91,12 +99,20 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
             </PolaroidLinkList>
           </PolaroidLink>
           <PolaroidLink
-            imageUrl={beekeeperImage}
+            className={styles.beekeeperLink}
             onMouseEnter={handleBeekeeperLinkHover(true)}
             onMouseLeave={handleBeekeeperLinkHover(false)}
-            overlay={<BeekeeperOverlay isHovered={isBeekeeperLinkHovered} />}
             to={href('/beekeeper')}
           >
+            <PolaroidFrame className={styles.beekeeperPolaroid}>
+              <PolaroidPhoto
+                alt={'Beekeeper in bee suit'}
+                src={beekeeperImage}
+              />
+              <PolaroidOverlay className={styles.polaroidOverlay}>
+                <BeekeeperOverlay isHovered={isBeekeeperLinkHovered} />
+              </PolaroidOverlay>
+            </PolaroidFrame>
             <PolaroidLinkHeading>Beekeeper</PolaroidLinkHeading>
             <PolaroidLinkDescription>
               Beekeeping with respect for the hive, the land, and the life they
@@ -121,7 +137,7 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
       </PageSection>
 
       <PageSection>
-        <PageHeading>Not sure which way to go?</PageHeading>
+        <PageSectionHeading>Not sure which way to go?</PageSectionHeading>
         <Paragraph>
           Whether you’re curious about my code, my bees, or both — I’d love to
           hear from you.

@@ -9,6 +9,10 @@ import { ErrorSectionHeading } from '~/components/error-section-heading'
 import { ErrorSectionStackTrace } from '~/components/error-section-stack-trace'
 import { ErrorSectionSubheading } from '~/components/error-section-subheading'
 import { LinkButton } from '~/components/link-button'
+import { PageHeroSection } from '~/components/page-hero-section'
+import { PageHeroSectionHeading } from '~/components/page-hero-section-heading'
+import { PageHeroSectionIntro } from '~/components/page-hero-section-intro'
+import { PageHeroSectionSubheading } from '~/components/page-hero-section-subheading'
 import { PageSeo } from '~/components/page-seo'
 import { Paragraph } from '~/components/paragraph'
 import { SEARCH_PARAMS } from '~/constants/search-params'
@@ -44,6 +48,17 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
         twitterImageUrl={''}
       />
 
+      <PageHeroSection>
+        <PageHeroSectionHeading>Development Work</PageHeroSectionHeading>
+        <PageHeroSectionSubheading>
+          Crafting digital experiences, one line of code at a time.
+        </PageHeroSectionSubheading>
+        <PageHeroSectionIntro>
+          As a developer, I build websites and applications that are fast,
+          accessible, and user-friendly. Here are some of my projects and notes
+          on the tools and techniques I use.
+        </PageHeroSectionIntro>
+      </PageHeroSection>
       <ul>
         <li>
           <Link to={href('/developer/portfolio')} viewTransition={true}>
