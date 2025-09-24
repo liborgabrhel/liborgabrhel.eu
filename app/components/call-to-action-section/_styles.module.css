@@ -8,6 +8,7 @@
 .section {
   @layer variant {
     margin-block-end: 32px;
+    text-align: center;
   }
 }
 
