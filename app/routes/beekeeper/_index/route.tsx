@@ -85,6 +85,10 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
         </PolaroidFrame>
       </PageHeroSection>
 
+      <QuoteSection>
+        <Quote author={'Mr. Miyagi'}>Colony fall… beekeeper rise.</Quote>
+      </QuoteSection>
+
       <PageSection>
         <PageSectionHeading>Where It Began</PageSectionHeading>
         <Paragraph className={styles.paragraph}>
@@ -109,10 +113,6 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
           will bring next.
         </Paragraph>
       </PageSection>
-
-      <QuoteSection>
-        <Quote author={'Mr. Miyagi'}>Colony fall… beekeeper rise.</Quote>
-      </QuoteSection>
 
       <PageSection>
         <PageSectionHeading>My Apiary</PageSectionHeading>

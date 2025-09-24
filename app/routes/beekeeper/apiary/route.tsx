@@ -72,10 +72,13 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
           From hive types and frames to the tools I reach for most often, here’s
           a look at the setup that keeps my colonies healthy and thriving.
         </PageHeroSectionIntro>
+        <PolaroidFrame className={styles.heroPolaroid}>
+          <PolaroidPhoto alt={''} src={''} />
+        </PolaroidFrame>
       </PageHeroSection>
 
       <QuoteSection>
-        <Quote author={'Mr. Miyagi'}>Book show words… hive show truth.</Quote>
+        <Quote author={'Mr. Miyagi'}>Hive is house… bees make home.</Quote>
       </QuoteSection>
 
       <PageSection>
