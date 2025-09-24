@@ -13,6 +13,7 @@ import { PageSection } from '~/components/page-section'
 import { PageSeo } from '~/components/page-seo'
 import { Paragraph } from '~/components/paragraph'
 import { Quote } from '~/components/quote'
+import { QuoteAttribution } from '~/components/quote-attribution'
 import { QuoteSection } from '~/components/quote-section'
 import { SEARCH_PARAMS } from '~/constants/search-params'
 import { useErrorBoundaryError } from '~/hooks/use-error-boundary-error'
@@ -65,7 +66,8 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
       </PageSection>
 
       <QuoteSection>
-        <Quote author={'Mr. Miyagi'}>One hand reach… other hand meet.</Quote>
+        <Quote>One hand reach… other hand meet.</Quote>
+        <QuoteAttribution>Mr. Miyagi</QuoteAttribution>
       </QuoteSection>
     </>
   )

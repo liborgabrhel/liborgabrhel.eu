@@ -25,6 +25,7 @@ import { Paragraph } from '~/components/paragraph'
 import { PolaroidFrame } from '~/components/polaroid-frame'
 import { PolaroidPhoto } from '~/components/polaroid-photo'
 import { Quote } from '~/components/quote'
+import { QuoteAttribution } from '~/components/quote-attribution'
 import { QuoteSection } from '~/components/quote-section'
 import { SEARCH_PARAMS } from '~/constants/search-params'
 import { useErrorBoundaryError } from '~/hooks/use-error-boundary-error'
@@ -86,7 +87,8 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
       </PageHeroSection>
 
       <QuoteSection>
-        <Quote author={'Mr. Miyagi'}>Colony fall… beekeeper rise.</Quote>
+        <Quote>Colony fall… beekeeper rise.</Quote>
+        <QuoteAttribution>Mr. Miyagi</QuoteAttribution>
       </QuoteSection>
 
       <PageSection>

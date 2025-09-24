@@ -24,6 +24,7 @@ import { Paragraph } from '~/components/paragraph'
 import { PolaroidFrame } from '~/components/polaroid-frame'
 import { PolaroidPhoto } from '~/components/polaroid-photo'
 import { Quote } from '~/components/quote'
+import { QuoteAttribution } from '~/components/quote-attribution'
 import { QuoteSection } from '~/components/quote-section'
 import { SplitView } from '~/components/split-view'
 import { SEARCH_PARAMS } from '~/constants/search-params'
@@ -78,7 +79,8 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
       </PageHeroSection>
 
       <QuoteSection>
-        <Quote author={'Mr. Miyagi'}>Hive is house… bees make home.</Quote>
+        <Quote>Hive is house… bees make home.</Quote>
+        <QuoteAttribution>Mr. Miyagi</QuoteAttribution>
       </QuoteSection>
 
       <PageSection>
@@ -164,7 +166,8 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
       </PageSection>
 
       <QuoteSection>
-        <Quote author={'Mr. Miyagi'}>Endure sting… receive gift.</Quote>
+        <Quote>Endure sting… receive gift.</Quote>
+        <QuoteAttribution>Mr. Miyagi</QuoteAttribution>
       </QuoteSection>
 
       <PageSection>
