@@ -1,0 +1,14 @@
+.noteCardLinkGroup {
+  @layer component {
+    display: grid;
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
+    grid-template-rows: repeat(auto-fit, auto 1fr auto);
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}

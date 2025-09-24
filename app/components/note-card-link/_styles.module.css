@@ -1,0 +1,71 @@
+@layer component {
+  body {
+    --link-color: var(--slate-600);
+    --focus-outline-color: var(--slate-400);
+  }
+}
+
+.listItem {
+  @layer component {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+  }
+}
+
+.link {
+  @layer component {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+    gap: 16px;
+    padding: 24px;
+    justify-items: start;
+    background: var(--bg-card);
+    border-radius: 12px;
+    box-shadow: var(--shadow-base);
+    text-decoration: none;
+    color: inherit;
+    transition:
+      box-shadow 0.2s ease-in-out,
+      transform 0.2s ease-in-out;
+
+    &:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--focus-outline-color);
+      outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+}
+
+.cta {
+  @layer component {
+    display: inline-grid;
+    grid-auto-flow: column;
+    column-gap: 8px;
+    align-items: center;
+    font-size: var(--font-size-small-text);
+    line-height: var(--line-height-normal);
+    color: var(--link-color);
+    border-bottom: 0.1em solid var(--link-color);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+      color: color-mix(in srgb, var(--link-color) 85%, black 15%);
+      border-bottom-color: color-mix(in srgb, var(--link-color) 85%, black 15%);
+    }
+  }
+}
