@@ -2,6 +2,12 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Before Writing Code
+
+- Read the lint and formatting rules
+- Observe the project's relevant existing code
+- Conform to existing code style, patterns, and conventions unless directed otherwise
+
 ## Development Commands
 
 ### Package Management
@@ -150,6 +156,23 @@ Lefthook handles pre-commit hooks:
     }
   }
   ```
+- **CSS Nesting**: Use modern CSS nesting for better organization and readability
+  ```css
+  .parent {
+    @layer component {
+      margin: 12px;
+      
+      p {
+        font-size: var(--font-size-base-text);
+        color: var(--slate-600);
+      }
+      
+      &:hover {
+        background: var(--slate-100);
+      }
+    }
+  }
+  ```
 
 ### Key Patterns
 
@@ -174,6 +197,46 @@ Each route can have multiple files:
 - React Router provides automatic type generation
 - Run `pnpm run typegen` after route changes
 - Strict TypeScript configuration with comprehensive checking
+
+#### JavaScript/TypeScript Coding Standards
+
+**Function Design:**
+- Keep functions short, pure, and composable - one job per function
+- Separate mapping logic from IO operations
+- Use arrow functions, object/array destructuring, and template literals for concise syntax
+- Chain operations rather than introducing intermediate variables: `[x].filter(p).map(f)`
+- Prefer async/await over raw promise chains
+- Use strict equality (`===`) throughout
+
+**Parameter Handling:**
+- Assign reasonable defaults directly in function signatures
+- Use destructuring with explicit parameter names:
+  ```typescript
+  // Good: Clear signature with defaults
+  const createUser = ({ id = createId(), name = '', description = '' } = {}) => ({ id, name, description })
+  
+  // Bad: Unclear signature
+  const createUser = (payload = {}) => ({ /* ... */ })
+  ```
+- Avoid null/undefined arguments; use options objects instead
+- Avoid using `||` for defaults - use parameter defaults instead
+
+**Naming Conventions:**
+- Functions should be verbs: `increment()`, `filter()`, `createUser()`
+- Predicates and booleans should read like yes/no questions: `isActive`, `hasPermission`
+- Prefer standalone verbs over noun.method: `createUser()` not `User.create()`
+- Lifecycle methods: prefer `beforeX`/`afterX` over `willX`/`didX`
+- Use strong negatives: `isEmpty(thing)` not `!isDefined(thing)`
+- Mixins and decorators use `with${Thing}`: `withUser`, `withAuth`
+
+**Code Organization:**
+- Favor functional programming patterns over classes
+- Avoid `class` and `extends` when possible
+- Prefer immutability: use `const`, spread, and rest operators instead of mutation
+- Favor `map`, `filter`, `reduce` over manual loops
+- Modularize by feature; one concern per file or function
+- Prefer named exports over default exports
+- Keep related code together; group by feature, not by technical type
 
 ## Reference Documentation
 
