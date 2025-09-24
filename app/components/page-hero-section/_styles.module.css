@@ -1,0 +1,6 @@
+.heroSection {
+  @layer variant {
+    row-gap: 0;
+    text-align: center;
+  }
+}

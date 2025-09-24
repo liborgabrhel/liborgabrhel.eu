@@ -1,0 +1,15 @@
+@layer component {
+  body {
+    --hero-section-subheading-color: var(--text-muted);
+  }
+}
+
+.subheading {
+  @layer component {
+    margin: 0;
+    font-size: var(--font-size-heading-5);
+    color: var(--hero-section-subheading-color);
+    line-height: var(--line-height-normal);
+    text-align: center;
+  }
+}
