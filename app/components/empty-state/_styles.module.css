@@ -1,0 +1,14 @@
+.card {
+  @layer component {
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-rows: auto;
+    justify-items: center;
+    align-content: center;
+    gap: 12px;
+    padding-block: 24px;
+    padding-inline: 24px;
+    text-align: center;
+    max-width: 480px;
+  }
+}

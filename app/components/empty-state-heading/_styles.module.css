@@ -1,0 +1,16 @@
+@layer component {
+  body {
+    --empty-state-heading-color: var(--slate-800);
+  }
+}
+
+.heading {
+  @layer component {
+    font-family: inherit;
+    font-size: var(--font-size-heading-5);
+    line-height: var(--line-height-tight);
+    color: var(--empty-state-heading-color);
+    font-weight: 700;
+    text-align: center;
+  }
+}
