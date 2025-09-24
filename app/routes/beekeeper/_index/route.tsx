@@ -4,6 +4,9 @@ import { useState } from 'react'
 import { href } from 'react-router'
 import { AnimatedBounce } from '~/components/animated-bounce'
 import { CallToActionSection } from '~/components/call-to-action-section'
+import { EmptyState } from '~/components/empty-state'
+import { EmptyStateDescription } from '~/components/empty-state-description'
+import { EmptyStateHeading } from '~/components/empty-state-heading'
 import { ErrorSection } from '~/components/error-section'
 import { ErrorSectionHeading } from '~/components/error-section-heading'
 import { ErrorSectionStackTrace } from '~/components/error-section-stack-trace'
@@ -152,7 +155,7 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
           jot down inspections, harvests, and the little lessons along the way —
           reminders of what worked, what failed, and what made me smile.
         </Paragraph>
-        {notes.length > 0 && (
+        {notes.length > 0 ? (
           <NoteCardLinkGroup className={styles.noteCardGroup}>
             {notes.map((note) => (
               <NoteCardLink
@@ -164,7 +167,7 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
               </NoteCardLink>
             ))}
           </NoteCardLinkGroup>
-        )}
+        ) : null}
         <Link
           onMouseEnter={handleNotesLinkHover(true)}
           onMouseLeave={handleNotesLinkHover(false)}

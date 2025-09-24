@@ -1,10 +1,19 @@
 // noinspection JSUnusedGlobalSymbols
 
 import { href, Link } from 'react-router'
+import { EmptyState } from '~/components/empty-state'
+import { EmptyStateDescription } from '~/components/empty-state-description'
+import { EmptyStateHeading } from '~/components/empty-state-heading'
 import { ErrorSection } from '~/components/error-section'
 import { ErrorSectionHeading } from '~/components/error-section-heading'
 import { ErrorSectionStackTrace } from '~/components/error-section-stack-trace'
 import { ErrorSectionSubheading } from '~/components/error-section-subheading'
+import { NoteCardExcerpt } from '~/components/note-card-excerpt'
+import { NoteCardLink } from '~/components/note-card-link'
+import { NoteCardLinkGroup } from '~/components/note-card-link-group'
+import { NoteCardTitle } from '~/components/note-card-title'
+import { PageSection } from '~/components/page-section'
+import { PageSectionHeading } from '~/components/page-section-heading'
 import { PageSeo } from '~/components/page-seo'
 import { useErrorBoundaryError } from '~/hooks/use-error-boundary-error'
 import { seo } from './_seo'
@@ -27,17 +36,31 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
         twitterImageUrl={''}
       />
 
-      <h2>Dev Notes</h2>
+      <PageSection>
+        <PageSectionHeading>Fragments to Explore</PageSectionHeading>
 
-      <ul>
-        {notes.map((note) => (
-          <li key={note.slug}>
-            <Link to={href('/beekeeper/notes/:slug', { slug: note.slug })}>
-              {note.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
+        {notes.length > 0 ? (
+          <NoteCardLinkGroup>
+            {notes.map((note) => (
+              <NoteCardLink
+                key={note.id}
+                to={href('/beekeeper/notes/:slug', { slug: note.slug })}
+              >
+                <NoteCardTitle>{note.title}</NoteCardTitle>
+                <NoteCardExcerpt>{note.excerpt}</NoteCardExcerpt>
+              </NoteCardLink>
+            ))}
+          </NoteCardLinkGroup>
+        ) : (
+          <EmptyState>
+            <EmptyStateHeading>The hive is quiet for now</EmptyStateHeading>
+            <EmptyStateDescription>
+              No stories have taken shape. In time, they’ll gather here — like
+              nectar in the cells.
+            </EmptyStateDescription>
+          </EmptyState>
+        )}
+      </PageSection>
     </>
   )
 }
