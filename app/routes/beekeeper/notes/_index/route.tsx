@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { href, Link } from 'react-router'
+import { href } from 'react-router'
 import { ErrorSection } from '~/components/error-section'
 import { ErrorSectionHeading } from '~/components/error-section-heading'
 import { ErrorSectionStackTrace } from '~/components/error-section-stack-trace'
