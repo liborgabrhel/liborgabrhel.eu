@@ -1,16 +1,17 @@
 import { clsx } from 'clsx'
-import { PageSection } from '~/components/page-section'
+import type { ComponentProps } from 'react'
 import styles from './_styles.module.css'
 
-type Props = {
-  className?: string
-  children: React.ReactNode
-}
+type Props = ComponentProps<'div'>
 
-export const CallToActionSection = ({ className, children }: Props) => {
+export const CallToActionSection = ({
+  className,
+  children,
+  ...rest
+}: Props) => {
   return (
-    <PageSection className={clsx(styles.section, className)}>
+    <div className={clsx(styles.section, className)} {...rest}>
       <div className={styles.card}>{children}</div>
-    </PageSection>
+    </div>
   )
 }
