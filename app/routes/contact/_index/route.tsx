@@ -1,14 +1,15 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { clsx } from 'clsx'
 import { useSearchParams } from 'react-router'
 import { EmailContact } from '~/components/email-contact/_component'
 import { ErrorSection } from '~/components/error-section'
 import { ErrorSectionHeading } from '~/components/error-section-heading'
 import { ErrorSectionStackTrace } from '~/components/error-section-stack-trace'
 import { ErrorSectionSubheading } from '~/components/error-section-subheading'
+import { PageHeroSection } from '~/components/page-hero-section'
+import { PageHeroSectionHeading } from '~/components/page-hero-section-heading'
+import { PageHeroSectionIntro } from '~/components/page-hero-section-intro'
 import { PageSection } from '~/components/page-section'
-import { PageSectionHeading } from '~/components/page-section-heading'
 import { PageSeo } from '~/components/page-seo'
 import { Paragraph } from '~/components/paragraph'
 import { Quote } from '~/components/quote'
@@ -46,17 +47,18 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
         twitterImageUrl={''}
       />
 
+      <PageHeroSection>
+        <PageHeroSectionHeading>Get in Touch</PageHeroSectionHeading>
+        <PageHeroSectionIntro>{INTRO_PARAGRAPH[via]}</PageHeroSectionIntro>
+      </PageHeroSection>
+
       <PageSection>
-        <PageSectionHeading>Get in Touch</PageSectionHeading>
-        <Paragraph className={styles.paragraph}>
-          {INTRO_PARAGRAPH[via]}
-        </Paragraph>
         <EmailContact
           address={'mail@liborgabrhel.eu'}
           body={MAIL_BODY[via]}
           subject={MAIL_SUBJECT[via]}
         />
-        <Paragraph className={clsx(styles.paragraph, styles.note)}>
+        <Paragraph className={styles.note}>
           The email will open with a pre-filled subject and message — you can
           adjust or remove them before sending.
         </Paragraph>
