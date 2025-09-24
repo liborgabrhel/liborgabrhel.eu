@@ -1,0 +1,14 @@
+.splitView {
+  @layer component {
+    display: grid;
+    gap: 32px;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 1fr;
+
+    @media (min-width: 768px) {
+      justify-items: start;
+      grid-template-columns: auto 1fr;
+    }
+  }
+}

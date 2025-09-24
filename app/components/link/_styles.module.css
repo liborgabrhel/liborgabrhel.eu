@@ -1,0 +1,28 @@
+@layer component {
+  body {
+    --link-color: var(--slate-600);
+  }
+}
+
+.link {
+  @layer component {
+    /* Grid layout for multiple children with proper spacing */
+    display: inline-grid;
+    grid-auto-flow: column;
+    column-gap: 8px;
+    place-items: center;
+
+    /* Remove default text decoration */
+    text-decoration: none;
+    color: var(--link-color);
+    transition: color 0.2s ease-in-out;
+
+    /* Permanent border that scales with font size */
+    border-bottom: 0.1em solid var(--link-color);
+
+    &:hover {
+      color: color-mix(in srgb, var(--link-color) 85%, black 15%);
+      border-bottom-color: color-mix(in srgb, var(--link-color) 85%, black 15%);
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.listItem {
+  @layer component {
+    margin-bottom: 8px;
+    line-height: var(--line-height-normal);
+  }
+}
+
+.paragraph {
+  @layer variant {
+    text-align: start;
+  }
+}
