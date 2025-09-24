@@ -1,72 +1,24 @@
 .listItem {
-  display: grid;
-  position: relative;
-  width: 100%;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  padding: 0;
-  justify-items: center;
-}
-
-.link {
-  display: grid;
-  position: relative;
-  width: 100%;
-  grid-template-columns: 1fr;
-  grid-auto-flow: row;
-  grid-auto-rows: auto;
-  justify-items: center;
-  text-decoration: none;
-}
-
-.polaroid {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  grid-template-areas: "photo";
-  margin: 0;
-  background: var(--bg-card);
-  box-shadow: var(--shadow-base);
-  width: calc(100vw - 48px);
-  max-width: 280px;
-  padding-block-start: 12px;
-  padding-block-end: 36px;
-  padding-inline: 12px;
-  will-change: transform;
-  transition:
-    box-shadow 400ms cubic-bezier(0.34, 1.56, 0.64, 1),
-    transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
-
-  @media (width >= 425px) {
-    width: 320px;
-    max-width: none;
-    padding-block-start: 16px;
-    padding-block-end: 48px;
-    padding-inline: 16px;
+  @layer component {
+    display: grid;
+    position: relative;
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 0;
+    justify-items: center;
   }
 }
 
-.photo {
-  width: 100%;
-  aspect-ratio: 1.2 / 1;
-  object-fit: cover;
-  object-position: center top;
-  background: #f0f0f0;
-  grid-area: photo;
-}
-
-.overlay {
-  overflow: hidden;
-  grid-area: photo;
-  opacity: 0;
-  transition: opacity 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.link:hover .polaroid {
-  box-shadow: var(--shadow-md);
-  transform: translate3d(0, -4px, 0);
-
-  .overlay {
-    opacity: 1;
+.link {
+  @layer component {
+    display: grid;
+    position: relative;
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-auto-flow: row;
+    grid-auto-rows: auto;
+    justify-items: center;
+    text-decoration: none;
   }
 }

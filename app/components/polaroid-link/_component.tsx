@@ -4,19 +4,10 @@ import { Link } from 'react-router'
 import styles from './_styles.module.css'
 
 type Props = {
-  imageAlt?: string
-  imageUrl?: string
-  overlay?: ReactNode
+  children: ReactNode
 } & ComponentProps<typeof Link>
 
-export const PolaroidLink = ({
-  className,
-  imageAlt = '',
-  imageUrl,
-  overlay,
-  children,
-  ...rest
-}: Props) => {
+export const PolaroidLink = ({ className, children, ...rest }: Props) => {
   return (
     <li className={clsx(styles.listItem, className)}>
       <Link
@@ -25,15 +16,6 @@ export const PolaroidLink = ({
         viewTransition={true}
         {...rest}
       >
-        <figure className={styles.polaroid}>
-          <img
-            alt={imageAlt}
-            aria-hidden={true}
-            className={styles.photo}
-            src={imageUrl}
-          />
-          <div className={styles.overlay}>{overlay}</div>
-        </figure>
         {children}
       </Link>
     </li>

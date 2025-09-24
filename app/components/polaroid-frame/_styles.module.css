@@ -1,0 +1,28 @@
+.polaroidFrame {
+  @layer component {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "photo";
+    margin: 0;
+    background: var(--bg-card);
+    box-shadow: var(--shadow-base);
+    width: calc(100vw - 48px);
+    max-width: 280px;
+    padding-block-start: 12px;
+    padding-block-end: 36px;
+    padding-inline: 12px;
+    will-change: transform, box-shadow;
+    transition:
+      box-shadow 400ms cubic-bezier(0.34, 1.56, 0.64, 1),
+      transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    @media (width >= 425px) {
+      width: 320px;
+      max-width: none;
+      padding-block-start: 16px;
+      padding-block-end: 48px;
+      padding-inline: 16px;
+    }
+  }
+}

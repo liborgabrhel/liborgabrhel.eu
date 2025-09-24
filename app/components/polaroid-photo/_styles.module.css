@@ -1,0 +1,10 @@
+.polaroidPhoto {
+  @layer component {
+    width: 100%;
+    aspect-ratio: 1.2 / 1;
+    object-fit: cover;
+    object-position: center top;
+    background: #f0f0f0;
+    grid-area: photo;
+  }
+}
