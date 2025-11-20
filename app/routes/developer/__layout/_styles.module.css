@@ -13,6 +13,8 @@
 
       --quote-text-color: var(--teal-600);
 
+      --list-item-highlight-color: var(--teal-700);
+
       --empty-state-heading-color: var(--teal-800);
 
       --link-button-background-color: var(--teal-600);

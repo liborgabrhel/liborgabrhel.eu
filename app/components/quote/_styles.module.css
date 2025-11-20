@@ -16,15 +16,10 @@
   @layer component {
     margin: 0;
     font-family: inherit;
-    font-size: var(--font-size-heading-5);
+    font-size: var(--font-size-heading-4);
     line-height: var(--line-height-normal);
     color: var(--quote-text-color);
     font-weight: 400;
     font-style: italic;
-    font-feature-settings:
-      "kern" 1,
-      "liga" 1,
-      "calt" 1,
-      "ss08" 1;
   }
 }

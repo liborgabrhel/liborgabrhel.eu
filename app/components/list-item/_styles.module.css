@@ -1,3 +1,9 @@
+@layer component {
+  body {
+    --list-item-highlight-color: var(--slate-700);
+  }
+}
+
 .listItem {
   @layer component {
     margin-bottom: 8px;
@@ -8,5 +14,12 @@
 .paragraph {
   @layer variant {
     text-align: start;
+
+    & strong {
+      font-size: inherit;
+      font-weight: 600;
+      line-height: inherit;
+      color: var(--list-item-highlight-color);
+    }
   }
 }

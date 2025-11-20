@@ -15,6 +15,8 @@
 
       --empty-state-heading-color: var(--amber-800);
 
+      --list-item-highlight-color: var(--amber-700);
+
       --link-button-background-color: var(--amber-600);
       --link-button-label-color: var(--amber-50);
 
