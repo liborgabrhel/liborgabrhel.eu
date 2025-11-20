@@ -1,6 +1,7 @@
 // noinspection JSUnusedGlobalSymbols
 
 import { useSearchParams } from 'react-router'
+import { CallToActionSection } from '~/components/call-to-action-section'
 import { EmailContact } from '~/components/email-contact/_component'
 import { ErrorSection } from '~/components/error-section'
 import { ErrorSectionHeading } from '~/components/error-section-heading'
@@ -53,7 +54,7 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
         <PageHeroSectionIntro>{INTRO_PARAGRAPH[via]}</PageHeroSectionIntro>
       </PageHeroSection>
 
-      <PageSection>
+      <CallToActionSection>
         <EmailContact
           address={'mail@liborgabrhel.eu'}
           body={MAIL_BODY[via]}
@@ -63,7 +64,7 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
           The email will open with a pre-filled subject and message — you can
           adjust or remove them before sending.
         </Paragraph>
-      </PageSection>
+      </CallToActionSection>
 
       <QuoteSection>
         <Quote>One hand reach… other hand meet.</Quote>

@@ -4,9 +4,7 @@ import { useState } from 'react'
 import { href } from 'react-router'
 import { AnimatedBounce } from '~/components/animated-bounce'
 import { CallToActionSection } from '~/components/call-to-action-section'
-import { EmptyState } from '~/components/empty-state'
-import { EmptyStateDescription } from '~/components/empty-state-description'
-import { EmptyStateHeading } from '~/components/empty-state-heading'
+import { CallToActionSectionCard } from '~/components/call-to-action-section-card'
 import { ErrorSection } from '~/components/error-section'
 import { ErrorSectionHeading } from '~/components/error-section-heading'
 import { ErrorSectionStackTrace } from '~/components/error-section-stack-trace'
@@ -150,7 +148,7 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
 
       <PageSection>
         <PageSectionHeading>Bee Notes</PageSectionHeading>
-        <Paragraph className={styles.paragraph}>
+        <Paragraph>
           Just like the apiary keeps me busy, the notebook keeps me honest. I
           jot down inspections, harvests, and the little lessons along the way —
           reminders of what worked, what failed, and what made me smile.
@@ -187,24 +185,26 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
       </PageSection>
 
       <CallToActionSection>
-        <Paragraph>
-          Curious about my life with bees, or want to share your own?
-        </Paragraph>
-        <LinkButton
-          onMouseEnter={handleContactLinkHover(true)}
-          onMouseLeave={handleContactLinkHover(false)}
-          to={contactUrl}
-        >
-          Contact me
-          <AnimatedBounce
-            axis={'x'}
-            from={0}
-            isAnimating={isContactLinkHovered}
-            to={-2}
+        <CallToActionSectionCard>
+          <Paragraph>
+            Curious about my life with bees, or want to share your own?
+          </Paragraph>
+          <LinkButton
+            onMouseEnter={handleContactLinkHover(true)}
+            onMouseLeave={handleContactLinkHover(false)}
+            to={contactUrl}
           >
-            →
-          </AnimatedBounce>
-        </LinkButton>
+            Contact me
+            <AnimatedBounce
+              axis={'x'}
+              from={0}
+              isAnimating={isContactLinkHovered}
+              to={-2}
+            >
+              →
+            </AnimatedBounce>
+          </LinkButton>
+        </CallToActionSectionCard>
       </CallToActionSection>
     </>
   )

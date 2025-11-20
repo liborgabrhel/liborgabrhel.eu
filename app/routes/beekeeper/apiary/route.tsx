@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { href } from 'react-router'
 import { AnimatedBounce } from '~/components/animated-bounce'
 import { CallToActionSection } from '~/components/call-to-action-section'
+import { CallToActionSectionCard } from '~/components/call-to-action-section-card'
 import { ErrorSection } from '~/components/error-section'
 import { ErrorSectionHeading } from '~/components/error-section-heading'
 import { ErrorSectionStackTrace } from '~/components/error-section-stack-trace'
@@ -213,24 +214,26 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
       </PageSection>
 
       <CallToActionSection>
-        <Paragraph>
-          Want to talk bees, hives, or the tools that make it work?
-        </Paragraph>
-        <LinkButton
-          onMouseEnter={handleContactLinkHover(true)}
-          onMouseLeave={handleContactLinkHover(false)}
-          to={contactUrl}
-        >
-          Contact me
-          <AnimatedBounce
-            axis={'x'}
-            from={0}
-            isAnimating={isContactLinkHovered}
-            to={-2}
+        <CallToActionSectionCard>
+          <Paragraph>
+            Want to talk bees, hives, or the tools that make it work?
+          </Paragraph>
+          <LinkButton
+            onMouseEnter={handleContactLinkHover(true)}
+            onMouseLeave={handleContactLinkHover(false)}
+            to={contactUrl}
           >
-            →
-          </AnimatedBounce>
-        </LinkButton>
+            Contact me
+            <AnimatedBounce
+              axis={'x'}
+              from={0}
+              isAnimating={isContactLinkHovered}
+              to={-2}
+            >
+              →
+            </AnimatedBounce>
+          </LinkButton>
+        </CallToActionSectionCard>
       </CallToActionSection>
     </>
   )

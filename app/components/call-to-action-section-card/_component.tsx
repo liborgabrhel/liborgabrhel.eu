@@ -2,16 +2,16 @@ import { clsx } from 'clsx'
 import type { ComponentProps } from 'react'
 import styles from './_styles.module.css'
 
-type Props = ComponentProps<'aside'>
+type Props = ComponentProps<'div'>
 
-export const CallToActionSection = ({
+export const CallToActionSectionCard = ({
   className,
   children,
   ...rest
 }: Props) => {
   return (
-    <aside className={clsx(styles.section, className)} {...rest}>
+    <div className={clsx(styles.card, className)} {...rest}>
       {children}
-    </aside>
+    </div>
   )
 }

@@ -13,21 +13,11 @@
     padding-inline: var(--page-content-padding-inline);
     margin-block-end: 64px;
     text-align: center;
-  }
-}
-
-.card {
-  @layer component {
     display: grid;
     grid-template-columns: 1fr;
     grid-auto-flow: row;
     grid-auto-rows: auto;
-    justify-items: center;
     gap: 16px;
-    padding: 24px;
-    background-color: var(--call-to-action-section-background-color);
-    border-top: 4px solid var(--call-to-action-section-border-color);
-    box-shadow: var(--shadow-base);
-    border-radius: 0 0 8px 8px;
+    justify-items: center;
   }
 }

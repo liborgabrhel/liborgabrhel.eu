@@ -1,0 +1,12 @@
+.heroPolaroid {
+  @layer route {
+    margin-block-start: 32px;
+    transform: rotate(1deg);
+  }
+}
+
+.portfolioPolaroid {
+  @layer route {
+    transform: rotate(-1deg);
+  }
+}
