@@ -11,7 +11,6 @@ export default defineConfig({
   },
   test: {
     coverage: {
-      all: true,
       include: ['app/**/*.{ts,tsx}'],
     },
     environment: 'jsdom',
