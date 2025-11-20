@@ -79,7 +79,7 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
           From fine detail to full system — interfaces that work.
         </PageHeroSectionSubheading>
         <PageHeroSectionIntro>
-          I’m Libor, a frontend developer working with React and TypeScript. My
+          I’m Libor, a front-end developer working with React and TypeScript. My
           focus is on clarity, performance, and user experience in everything I
           create.
         </PageHeroSectionIntro>

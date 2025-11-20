@@ -79,7 +79,7 @@ export default function RouteComponent({ loaderData }: Route.ComponentProps) {
                 <DeveloperOverlay isHovered={isDeveloperLinkHovered} />
               </PolaroidOverlay>
             </PolaroidFrame>
-            <PolaroidLinkHeading>Frontend Developer</PolaroidLinkHeading>
+            <PolaroidLinkHeading>Front-end Developer</PolaroidLinkHeading>
             <PolaroidLinkDescription>
               Modern web apps that are fast, accessible, and a joy to use.
             </PolaroidLinkDescription>

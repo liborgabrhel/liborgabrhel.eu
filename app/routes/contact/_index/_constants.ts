@@ -6,7 +6,7 @@ export const INTRO_PARAGRAPH: Record<Via, string> = {
   default:
     "I'd be glad to hear from you — whether you have web development questions, want to discuss a project, or simply have beekeeping questions to share. You can reach me directly at the email below.",
   developer:
-    "I'd be glad to hear from you about web development — whether you have questions, want to discuss a project, or just want to connect with a fellow frontend developer. You can reach me directly at the email below.",
+    "I'd be glad to hear from you about web development — whether you have questions, want to discuss a project, or just want to connect with a fellow front-end developer. You can reach me directly at the email below.",
 }
 
 export const MAIL_SUBJECT: Record<Via, string> = {

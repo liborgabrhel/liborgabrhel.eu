@@ -32,7 +32,7 @@ export const meta: Route.MetaFunction = ({ matches, loaderData }) => {
       },
     },
     description:
-      'Contact page for Libor Gabrhel - Frontend Developer and Beekeeper',
+      'Contact page for Libor Gabrhel - Front-end Developer and Beekeeper',
     name: 'Contact Libor Gabrhel',
     url: `${loaderData.baseUrl}/contact`,
   }

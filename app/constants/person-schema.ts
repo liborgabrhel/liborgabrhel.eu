@@ -7,7 +7,7 @@ export const PERSON_SCHEMA = {
       '@type': 'Occupation' as const,
       description:
         'Building modern web applications with React, TypeScript, and performant frontend architectures.',
-      name: 'Frontend Developer',
+      name: 'Front-end Developer',
       occupationLocation: {
         '@type': 'Country' as const,
         containedInPlace: [
@@ -56,7 +56,7 @@ export const PERSON_SCHEMA = {
       ],
     },
   ],
-  jobTitle: ['Frontend Developer', 'Beekeeper'],
+  jobTitle: ['Front-end Developer', 'Beekeeper'],
   knowsAbout: [
     'React',
     'TypeScript',

@@ -39,7 +39,7 @@ export const SiteHeader = ({ className }: Props) => {
               isBeekeeperSubdirectory && styles.subheadlineHidden,
             )}
           >
-            Frontend Developer
+            Front-end Developer
           </span>
           <span
             className={clsx(
