@@ -1,10 +1,10 @@
 import { remember } from '@epic-web/remember'
 import { PrismaClient } from '@generated/prisma/client'
-import { PrismaBetterSQLite3 } from '@prisma/adapter-better-sqlite3'
+import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3'
 
 export const db = remember('db', () => {
-  const adapter = new PrismaBetterSQLite3({
-    url: `file:${process.env.DATABASE_PATH}`,
+  const adapter = new PrismaBetterSqlite3({
+    url: process.env.DATABASE_URL,
   })
 
   const client = new PrismaClient({
