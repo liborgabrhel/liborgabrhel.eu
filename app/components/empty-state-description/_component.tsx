@@ -1,5 +1,5 @@
-import type { ComponentProps } from 'react'
 import { clsx } from 'clsx'
+import type { ComponentProps } from 'react'
 import styles from './_styles.module.css'
 
 type Props = ComponentProps<'p'>
