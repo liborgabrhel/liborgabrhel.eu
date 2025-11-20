@@ -205,7 +205,7 @@ Each route can have multiple files:
 - Separate mapping logic from IO operations
 - Use arrow functions, object/array destructuring, and template literals for concise syntax
 - Chain operations rather than introducing intermediate variables: `[x].filter(p).map(f)`
-- Prefer async/await over raw promise chains
+- Prefer async/await or asyncPipe over raw promise chains
 - Use strict equality (`===`) throughout
 
 **Parameter Handling:**
